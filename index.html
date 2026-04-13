@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CÉSAR MADRIGAL RODRÍGUEZ | Revenue Management</title>
+    <title>CÉSAR MADRIGAL | Revenue Management Expert</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     
@@ -15,12 +15,25 @@
             --text: #f8fafc;
             --text-dim: #94a3b8;
             --border: rgba(255,255,255,0.08);
-            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+        /* OVERLAY */
+        .thinking-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg); display: none; justify-content: center; align-items: center; z-index: 9999;
+        }
+        .thinking-text {
+            font-size: 1.5rem; font-weight: 800; letter-spacing: 4px;
+            background: linear-gradient(90deg, #fff, var(--accent), #fff);
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shine 1.5s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
 
         .bg-glow {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -30,98 +43,59 @@
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
-        /* PANTALLA DE PENSANDO */
-        .thinking-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg); display: none; justify-content: center; align-items: center; z-index: 9999;
-        }
-        .thinking-text {
-            font-size: 2rem; font-weight: 800; letter-spacing: 4px; text-transform: uppercase;
-            background: linear-gradient(90deg, #fff, var(--accent), #fff);
-            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: shine 1.5s linear infinite;
-        }
-        @keyframes shine { to { background-position: 200% center; } }
-        
-        .dots span { display: inline-block; animation: bounce 1.4s infinite ease-in-out both; }
-        .dots span:nth-child(1) { animation-delay: -0.32s; }
-        .dots span:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
-
-        /* HEADER & NOMBRE */
-        header { padding: 4rem 0 2rem; position: relative; }
+        /* HEADER */
+        header { padding: 4rem 0 2rem; }
         nav { display: flex; justify-content: space-between; align-items: flex-start; }
-        
-        .logo { 
-            font-weight: 800; 
-            font-size: clamp(2.5rem, 8vw, 4.5rem); 
-            line-height: 0.8; 
-            letter-spacing: -4px;
-            text-transform: uppercase;
-            background: linear-gradient(180deg, #fff 40%, rgba(255,255,255,0.4) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .logo span { display: block; }
+        .logo { font-weight: 800; font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 0.8; letter-spacing: -4px; text-transform: uppercase; }
+        .logo span { display: block; opacity: 0.4; }
 
-        /* FILTRO DE IDIOMAS (PEQUEÑO Y A LA DERECHA) */
-        .lang-switcher {
-            display: flex; gap: 0.3rem; background: rgba(255,255,255,0.05);
-            padding: 4px; border-radius: 12px; border: 1px solid var(--border);
-        }
-        .lang-btn {
-            background: transparent; border: none; cursor: pointer;
-            font-size: 0.7rem; font-weight: 800; color: var(--text-dim);
-            padding: 8px 12px; border-radius: 8px; transition: var(--transition);
-        }
+        .lang-switcher { display: flex; gap: 4px; background: rgba(255,255,255,0.05); padding: 4px; border-radius: 12px; border: 1px solid var(--border); }
+        .lang-btn { background: transparent; border: none; cursor: pointer; font-size: 0.7rem; font-weight: 800; color: var(--text-dim); padding: 8px 12px; border-radius: 8px; transition: var(--transition); }
         .lang-btn.active { background: var(--accent); color: var(--bg); }
 
         /* HERO */
-        .hero { padding: 4rem 0; }
-        .hero h1 { font-size: clamp(2.5rem, 7vw, 4rem); line-height: 1.1; font-weight: 800; margin-bottom: 2rem; letter-spacing: -1px; }
+        .hero { padding: 4rem 0 6rem; }
+        .hero h1 { font-size: clamp(2.5rem, 7vw, 4rem); line-height: 1.1; font-weight: 800; margin-bottom: 2rem; }
         .hero h1 span { color: var(--accent); }
         .hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 700px; margin-bottom: 3rem; }
 
-        .social-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 4rem; }
-        .btn-action {
-            display: inline-flex; align-items: center; gap: 0.75rem;
-            padding: 1rem 2rem; border-radius: 12px; text-decoration: none; 
-            font-weight: 700; font-size: 0.95rem; transition: var(--transition);
-        }
+        .social-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .btn-action { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: var(--transition); }
         .btn-mail { background: var(--accent); color: var(--bg); }
         .btn-cv { border: 1px solid var(--border); color: white; }
-        .btn-cv:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* EXPERIENCIA */
+        /* METRIC CARDS */
+        .grid-expertise { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 5rem; }
+        .metric-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; border-radius: 20px; transition: var(--transition); }
+        .metric-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .metric-val { color: var(--accent); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.5rem; }
+        .metric-card h4 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .metric-card p { color: var(--text-dim); font-size: 0.9rem; }
+
+        /* EXPERIENCE */
         section { padding: 5rem 0; border-top: 1px solid var(--border); }
-        .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 3rem; font-weight: 800; }
-
-        .exp-item { margin-bottom: 4rem; }
-        .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; flex-wrap: wrap; gap: 10px; }
-        .exp-company { font-size: 1.5rem; font-weight: 800; color: #fff; }
-        .exp-role { font-size: 1.1rem; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; display: block; }
-        .exp-date { font-size: 0.9rem; color: var(--text-dim); }
+        .section-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 3rem; font-weight: 800; display: block; }
+        
+        .exp-item { margin-bottom: 4rem; display: grid; grid-template-columns: 250px 1fr; gap: 2rem; }
+        .exp-date { color: var(--text-dim); font-size: 0.9rem; font-weight: 600; }
+        .exp-company { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .exp-role { color: var(--accent); font-weight: 600; display: block; margin-bottom: 1rem; }
         .exp-list { list-style: none; }
         .exp-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: var(--text-dim); font-size: 0.95rem; }
         .exp-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
 
-        /* TOOLS */
-        .tags-container { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-        .tag { background: var(--surface); border: 1px solid var(--border); padding: 10px 18px; border-radius: 10px; font-size: 0.85rem; font-weight: 600; color: var(--text); }
-
         footer { padding: 4rem 0; text-align: center; color: var(--text-dim); border-top: 1px solid var(--border); font-size: 0.8rem; }
 
-        @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 2rem; }
-            .lang-switcher { align-self: flex-end; }
-            .exp-header { flex-direction: column; }
+        @media (max-width: 850px) {
+            .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+            .logo { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- OVERLAY PENSANDO -->
     <div id="thinking-overlay" class="thinking-overlay">
-        <div class="thinking-text" id="thinking-msg">PENSANDO<div class="dots"><span>.</span><span>.</span><span>.</span></div></div>
+        <div class="thinking-text" id="thinking-msg">PENSANDO...</div>
     </div>
 
     <div class="bg-glow"></div>
@@ -140,7 +114,7 @@
     <main class="container">
         <section class="hero" style="border:none">
             <h1 data-key="hero-h1">Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span></h1>
-            <p data-key="hero-p">Profesional en Revenue Management y Finanzas con más de 9 años de experiencia. Especializado en transformar datos complejos en decisiones ejecutivas.</p>
+            <p data-key="hero-p">Especialista en Revenue Management con 9+ años de experiencia transformando datos complejos en estrategias de precios de alto impacto.</p>
             
             <div class="social-row">
                 <a href="mailto:cesarmadrigalrodriguez24@gmail.com" class="btn-action btn-mail">
@@ -149,49 +123,52 @@
                 <a href="CV_Cesar_Madrigal_ES.pdf" id="cv-download" download class="btn-action btn-cv">
                     <span data-key="btn-cv">Descargar CV</span>
                 </a>
-                <a href="https://wa.me/50684349442" target="_blank" class="btn-action" style="background:#25d366; color:white">WhatsApp</a>
-                <a href="https://www.linkedin.com/in/c%C3%A9sar-madrigal-rodr%C3%ADguez-3a23351b2" target="_blank" class="btn-action" style="background:#0077b5; color:white">LinkedIn</a>
             </div>
         </section>
+
+        <div class="grid-expertise">
+            <div class="metric-card">
+                <span class="metric-val" data-key="m1-val">ROI Focused</span>
+                <h4 data-key="m1-title">Corporate Finance</h4>
+                <p data-key="m1-desc">Gestión avanzada de P&L y modelado de capital.</p>
+            </div>
+            <div class="metric-card">
+                <span class="metric-val" data-key="m2-val">+15% Yield Potential</span>
+                <h4 data-key="m2-title">Revenue Management</h4>
+                <p data-key="m2-desc">Motores de precios dinámicos y análisis de demanda.</p>
+            </div>
+            <div class="metric-card">
+                <span class="metric-val" data-key="m3-val">400+ Hours Saved/Yr</span>
+                <h4 data-key="m3-title">Automation & RPA</h4>
+                <p data-key="m3-desc">Eliminación de tareas manuales mediante VBA y Python.</p>
+            </div>
+        </div>
 
         <section id="experience">
-            <h2 class="section-title" data-key="title-exp">Experiencia Profesional</h2>
+            <span class="section-label" data-key="title-exp">Experiencia Profesional</span>
             
             <div class="exp-item">
-                <div class="exp-header"><div class="exp-company">FIFCO</div><div class="exp-date">Nov 2025 – Feb 2026</div></div>
-                <span class="exp-role" data-key="r1-title">Analista de Revenue Management</span>
-                <ul class="exp-list">
-                    <li data-key="r1-p1">Gestión de aprobación de flujos comerciales mediante PriceFx para 6 categorías de portafolio.</li>
-                    <li data-key="r1-p2">Elaboración y actualización de P&L y ladders de precios asegurando alineación estratégica.</li>
-                </ul>
+                <div class="exp-date">Nov 2025 – Feb 2026</div>
+                <div>
+                    <div class="exp-company">FIFCO</div>
+                    <span class="exp-role" data-key="r1-title">Analista de Revenue Management</span>
+                    <ul class="exp-list">
+                        <li data-key="r1-p1">Gestión de aprobación de flujos comerciales mediante PriceFx.</li>
+                        <li data-key="r1-p2">Optimización de P&L y ladders de precios estratégicos.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="exp-item">
-                <div class="exp-header"><div class="exp-company">Grupo ANC</div><div class="exp-date">Mar 2024 – Nov 2025</div></div>
-                <span class="exp-role" data-key="r2-title">Regional Revenue Manager</span>
-                <ul class="exp-list">
-                    <li data-key="r2-p1">Dirección de estrategia de optimización para flota de 500+ vehículos en CR, GT, PE y NI.</li>
-                    <li data-key="r2-p2">Diseño de modelos de pricing dinámico integrando forecasting y monitoreo competitivo.</li>
-                </ul>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-header"><div class="exp-company">Genpact</div><div class="exp-date">Feb 2022 – Mar 2024</div></div>
-                <span class="exp-role" data-key="r3-title">Senior Tax Analyst / Process Developer</span>
-                <ul class="exp-list">
-                    <li data-key="r3-p1">Automatización de flujos con Power Automate eliminando el 60% del tiempo manual.</li>
-                    <li data-key="r3-p2">Desarrollo de macros VBA reduciendo el tiempo de procesamiento en un 35%.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="tech">
-            <h2 class="section-title" data-key="title-tech">Herramientas & Competencias</h2>
-            <div class="tags-container">
-                <span class="tag">Revenue Management</span><span class="tag">Pricing Strategy</span>
-                <span class="tag">Power BI</span><span class="tag">SQL / BigQuery</span>
-                <span class="tag">Python</span><span class="tag">VBA / Macros</span>
-                <span class="tag">PriceFx</span><span class="tag">Lean Six Sigma</span>
+                <div class="exp-date">Mar 2024 – Nov 2025</div>
+                <div>
+                    <div class="exp-company">Grupo ANC</div>
+                    <span class="exp-role" data-key="r2-title">Regional Revenue Manager</span>
+                    <ul class="exp-list">
+                        <li data-key="r2-p1">Optimización para flota de 500+ vehículos en 4 países LATAM.</li>
+                        <li data-key="r2-p2">Implementación de modelos de pricing dinámico.</li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
@@ -204,52 +181,46 @@
         const i18n = {
             en: {
                 "hero-h1": "Engineering Profitability Through <span>Data Systems.</span>",
-                "hero-p": "Finance & Revenue Management professional with 9+ years of experience. Specialized in turning complex data into executive decisions.",
+                "hero-p": "Revenue Management Specialist with 9+ years experience transforming complex data into high-impact pricing strategies.",
                 "btn-contact": "Email Me", "btn-cv": "Download CV",
-                "title-exp": "Professional Experience", "title-tech": "Tech Stack",
-                "r1-title": "Revenue Management Analyst", "r1-p1": "Managed commercial flows via PriceFx for 6 portfolio categories.", "r1-p2": "Developed P&L and price ladders ensuring strategic alignment.",
-                "r2-title": "Regional Revenue Manager", "r2-p1": "Led optimization for 500+ vehicle fleet across 4 countries.", "r2-p2": "Designed dynamic pricing models and competitive monitoring systems.",
-                "r3-title": "Sr Tax Analyst / Process Developer", "r3-p1": "Automated workflows with Power Automate saving 60% manual time.", "r3-p2": "Built VBA macro suite reducing processing time by 35%."
+                "m1-val": "ROI Focused", "m1-title": "Corporate Finance", "m1-desc": "Advanced P&L management and capital modeling.",
+                "m2-val": "+15% Yield", "m2-title": "Revenue Management", "m2-desc": "Dynamic pricing engines and demand analysis.",
+                "m3-val": "400+ Hrs Saved", "m3-title": "Automation", "m3-desc": "Eliminating manual tasks via VBA and Python.",
+                "title-exp": "Professional Journey",
+                "r1-title": "Revenue Management Analyst", "r1-p1": "Commercial flow approval via PriceFx.", "r1-p2": "Strategic P&L and price ladder optimization.",
+                "r2-title": "Regional Revenue Manager", "r2-p1": "Fleet optimization for 500+ assets in 4 countries.", "r2-p2": "Dynamic pricing model implementation."
             },
             es: {
                 "hero-h1": "Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span>",
-                "hero-p": "Profesional en Revenue Management y Finanzas con más de 9 años de experiencia. Especializado en transformar datos complejos en decisiones ejecutivas.",
+                "hero-p": "Especialista en Revenue Management con 9+ años de experiencia transformando datos complejos en estrategias de precios de alto impacto.",
                 "btn-contact": "Escríbeme", "btn-cv": "Descargar CV",
-                "title-exp": "Experiencia Profesional", "title-tech": "Herramientas & Competencias",
-                "r1-title": "Analista de Revenue Management", "r1-p1": "Gestión de aprobación de flujos comerciales mediante PriceFx.", "r1-p2": "Elaboración de P&L y ladders de precios estratégicos.",
-                "r2-title": "Regional Revenue Manager", "r2-p1": "Estrategia para flota de 500+ vehículos en 4 países.", "r2-p2": "Modelos de pricing dinámico y monitoreo competitivo.",
-                "r3-title": "Senior Tax Analyst / Process Developer", "r3-p1": "Automatización con Power Automate ahorrando 60% de tiempo.", "r3-p2": "Macros VBA reduciendo el procesamiento en un 35%."
-            },
-            pt: {
-                "hero-h1": "Engenharia de Rentabilidade através de <span>Sistemas de Dados.</span>",
-                "hero-p": "Profissional de Revenue e Finanças com 9+ anos de experiência. Especialista em transformar dados complexos em decisões.",
-                "btn-contact": "Enviar Email", "btn-cv": "Baixar CV",
-                "title-exp": "Experiência Profissional", "title-tech": "Habilidades",
-                "r1-title": "Analista de Revenue Management", "r2-title": "Regional Revenue Manager", "r3-title": "Analista Sênior"
+                "m1-val": "Enfoque en ROI", "m1-title": "Finanzas Corporativas", "m1-desc": "Gestión avanzada de P&L y modelado de capital.",
+                "m2-val": "+15% Potencial", "m2-title": "Revenue Management", "m2-desc": "Motores de precios dinámicos y análisis de demanda.",
+                "m3-val": "400+ Horas Ahorradas", "m3-title": "Automatización", "m3-desc": "Eliminación de tareas manuales con VBA y Python.",
+                "title-exp": "Trayectoria Profesional",
+                "r1-title": "Analista de Revenue Management", "r1-p1": "Gestión de aprobación de flujos comerciales vía PriceFx.", "r1-p2": "Optimización de P&L y ladders de precios.",
+                "r2-title": "Regional Revenue Manager", "r2-p1": "Optimización de flota de 500+ vehículos en 4 países.", "r2-p2": "Implementación de pricing dinámico."
             }
         };
 
-        const thinkMsgs = { en: "THINKING", es: "PENSANDO", pt: "PENSANDO" };
+        const thinkMsgs = { en: "THINKING...", es: "PENSANDO...", pt: "PENSANDO..." };
 
         function setLang(lang, btn) {
             const overlay = document.getElementById('thinking-overlay');
             const msg = document.getElementById('thinking-msg');
-            
             overlay.style.display = 'flex';
-            msg.innerHTML = thinkMsgs[lang] + '<div class="dots"><span>.</span><span>.</span><span>.</span></div>';
+            msg.innerHTML = thinkMsgs[lang];
 
             setTimeout(() => {
                 document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                
                 document.querySelectorAll('[data-key]').forEach(el => {
                     const key = el.getAttribute('data-key');
-                    if(i18n[lang][key]) el.innerHTML = i18n[lang][key];
+                    if(i18n[lang] && i18n[lang][key]) el.innerHTML = i18n[lang][key];
                 });
-
                 document.getElementById('cv-download').href = (lang === 'en') ? "CV_Cesar_Madrigal_EN.pdf" : "CV_Cesar_Madrigal_ES.pdf";
                 overlay.style.display = 'none';
-            }, 700);
+            }, 600);
         }
     </script>
 </body>
