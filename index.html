@@ -14,11 +14,11 @@
             --text: #f8fafc;
             --text-dim: #a7b1be;
             --border: rgba(255,255,255,0.08);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
@@ -28,13 +28,27 @@
 
         .logo { 
             font-weight: 800; 
-            font-size: clamp(2.2rem, 7vw, 5rem); /* Nombre masivo */
+            font-size: clamp(2.2rem, 7vw, 5rem); 
             letter-spacing: -3px; 
             text-transform: uppercase;
-            white-space: nowrap; /* Siempre en una sola línea */
-            color: #fff;
+            white-space: nowrap; 
+            background: linear-gradient(90deg, #fff, #fff);
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            transition: var(--transition);
             text-align: center;
         }
+
+        /* ANIMACIÓN DE PROCESAMIENTO (REINTEGRADA) */
+        .logo.processing {
+            background: linear-gradient(90deg, #38bdf8, #a7b1be, #6366f1, #38bdf8);
+            background-size: 200% auto;
+            animation: shine 1.2s linear infinite;
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes shine { to { background-position: 200% center; } }
 
         .lang-switcher { 
             display: flex; gap: 5px; background: var(--surface); padding: 5px; 
@@ -47,11 +61,11 @@
         }
         .lang-btn.active { background: var(--accent); color: var(--bg); }
 
-        /* HERO SECTION */
+        /* HERO & BOTONES */
         .hero { padding: 4rem 0 6rem 0; text-align: center; }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; margin-bottom: 2rem; letter-spacing: -2px; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; margin-bottom: 2rem; }
         .hero h1 span { color: var(--accent); }
-        .hero p { font-size: 1.15rem; color: var(--text-dim); max-width: 850px; margin: 0 auto 3.5rem auto; font-weight: 400; }
+        .hero p { font-size: 1.15rem; color: var(--text-dim); max-width: 850px; margin: 0 auto 3.5rem auto; }
 
         .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
         .btn { padding: 1rem 2.2rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: var(--transition); display: inline-flex; align-items: center; }
@@ -59,23 +73,31 @@
         .btn-wa { background: #25d366; color: white; }
         .btn-li { background: #0077b5; color: white; }
         .btn-cv { border: 1px solid var(--border); color: white; }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.4); filter: brightness(1.1); }
-
-        /* SECCIÓN DE EXPERIENCIA (Identica a image_d95631.png) */
+        
+        /* SECCIÓN DE HABILIDADES */
         section { padding: 6rem 0; border-top: 1px solid var(--border); }
-        .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); margin-bottom: 5rem; font-weight: 800; text-align: left; }
+        .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); margin-bottom: 3.5rem; font-weight: 800; }
 
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .skill-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; border-radius: 16px; transition: var(--transition); }
+        .skill-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .skill-card h4 { font-size: 0.75rem; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+
+        /* EXPERIENCIA */
         .exp-item { margin-bottom: 4rem; display: grid; grid-template-columns: 240px 1fr; gap: 2rem; }
-        .exp-meta { color: var(--text-dim); font-size: 0.9rem; font-weight: 600; padding-top: 0.5rem; }
-        .exp-content h3 { font-size: 2rem; font-weight: 800; margin-bottom: 0.2rem; letter-spacing: -0.5px; }
-        .exp-role { color: var(--accent); font-weight: 700; display: block; margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .exp-meta { color: var(--text-dim); font-size: 0.9rem; font-weight: 600; }
+        .exp-content h3 { font-size: 2rem; font-weight: 800; margin-bottom: 0.2rem; }
+        .exp-role { color: var(--accent); font-weight: 700; display: block; margin-bottom: 1.5rem; }
         .exp-list { list-style: none; }
         .exp-list li { position: relative; padding-left: 2rem; margin-bottom: 0.8rem; color: var(--text-dim); font-size: 1.05rem; }
         .exp-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
 
+        /* EFECTO CARGA CONTENIDO */
+        main.loading { opacity: 0.3; filter: blur(4px); transition: 0.6s; }
+
         @media (max-width: 850px) {
             .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-            .logo { font-size: 2rem; letter-spacing: -1px; }
+            .logo { font-size: 2rem; }
         }
     </style>
 </head>
@@ -83,7 +105,7 @@
 
     <header class="container">
         <nav>
-            <div class="logo">CÉSAR MADRIGAL R.</div>
+            <div class="logo" id="name-logo">CÉSAR MADRIGAL R.</div>
             <div class="lang-switcher">
                 <button class="lang-btn" onclick="setLang('en', this)">EN</button>
                 <button class="lang-btn active" onclick="setLang('es', this)">ES</button>
@@ -96,12 +118,21 @@
         <section class="hero" style="border:none">
             <h1 data-key="h-title">Engineering Profitability Through <span>Data Systems.</span></h1>
             <p data-key="h-desc">Profesional Senior con más de 9 años de experiencia transformando datos complejos en estrategias de rentabilidad mediante automatización avanzada e IA generativa.</p>
-            
             <div class="btn-group">
                 <a href="mailto:cesarmadrigalrodriguez24@gmail.com" class="btn btn-mail">Email</a>
                 <a href="https://wa.me/50684349442" class="btn btn-wa">WhatsApp</a>
                 <a href="https://www.linkedin.com/in/c%C3%A9sar-madrigal-rodr%C3%ADguez-3a23351b2" class="btn btn-li">LinkedIn</a>
                 <a href="#" class="btn btn-cv" data-key="b-cv">Descargar CV</a>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title" data-key="s-tech">Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-card"><h4>Data & BI</h4><p>Power BI, DAX, Excel Expert, SQL, Python.</p></div>
+                <div class="skill-card"><h4>Revenue</h4><p>PriceFx, Dynamic Pricing, Forecasting, P&L.</p></div>
+                <div class="skill-card"><h4>AI & Automation</h4><p>Gen AI, Power Automate, Process Developer.</p></div>
+                <div class="skill-card"><h4>Methodology</h4><p>Lean Six Sigma Green Belt, Tax Expert.</p></div>
             </div>
         </section>
 
@@ -113,9 +144,7 @@
                 <div class="exp-content">
                     <h3>FIFCO</h3>
                     <span class="exp-role" data-key="r1-t">Revenue Management Analyst</span>
-                    <ul class="exp-list">
-                        <li data-key="r1-p1">Control comercial mediante PriceFx para 6 categorías estratégicas.</li>
-                    </ul>
+                    <ul class="exp-list"><li>PriceFx y estrategias de rentabilidad.</li></ul>
                 </div>
             </div>
 
@@ -124,9 +153,7 @@
                 <div class="exp-content">
                     <h3>Grupo ANC</h3>
                     <span class="exp-role" data-key="r2-t">Regional Revenue Manager</span>
-                    <ul class="exp-list">
-                        <li data-key="r2-p1">Dirección de estrategia de Revenue para flota regional de 500+ vehículos.</li>
-                    </ul>
+                    <ul class="exp-list"><li>Estrategia regional para flota LATAM.</li></ul>
                 </div>
             </div>
 
@@ -135,9 +162,7 @@
                 <div class="exp-content">
                     <h3>Genpact</h3>
                     <span class="exp-role" data-key="r3-t1">Senior Tax Analyst</span>
-                    <ul class="exp-list">
-                        <li data-key="r3-p1">Gestión avanzada de cumplimiento fiscal y optimización operativa.</li>
-                    </ul>
+                    <ul class="exp-list"><li>Cumplimiento fiscal y eficiencia operativa.</li></ul>
                 </div>
             </div>
 
@@ -145,10 +170,8 @@
                 <div class="exp-meta">Nov 2019 – Feb 2022</div>
                 <div class="exp-content">
                     <h3>Genpact</h3>
-                    <span class="exp-role" data-key="r3-t2">Process Developer (Accounts Receivables AR)</span>
-                    <ul class="exp-list">
-                        <li data-key="r3-p2">Diseño y ejecución de arquitecturas de automatización de procesos.</li>
-                    </ul>
+                    <span class="exp-role" data-key="r3-t2">Process Developer (AR)</span>
+                    <ul class="exp-list"><li>Automatización de procesos financieros.</li></ul>
                 </div>
             </div>
 
@@ -156,10 +179,8 @@
                 <div class="exp-meta">Dic 2018 – Oct 2019</div>
                 <div class="exp-content">
                     <h3>Walmart</h3>
-                    <span class="exp-role" data-key="r4-t">Process Developer (Accounts Receivables AR)</span>
-                    <ul class="exp-list">
-                        <li data-key="r4-p1">Reconocimiento como Top Collector por eficiencia en recuperación de cartera.</li>
-                    </ul>
+                    <span class="exp-role" data-key="r4-t">Process Developer (AR)</span>
+                    <ul class="exp-list"><li>Top Collector por eficiencia regional.</li></ul>
                 </div>
             </div>
 
@@ -167,10 +188,8 @@
                 <div class="exp-meta">Mar 2018 – Nov 2018</div>
                 <div class="exp-content">
                     <h3>Grupo STT</h3>
-                    <span class="exp-role" data-key="r5-t">Process Developer (Accounts Receivables AR)</span>
-                    <ul class="exp-list">
-                        <li data-key="r5-p1">Estandarización de procesos de facturación y cobranza regional.</li>
-                    </ul>
+                    <span class="exp-role" data-key="r5-t">Process Developer (AR)</span>
+                    <ul class="exp-list"><li>Estandarización de cobranza regional.</li></ul>
                 </div>
             </div>
 
@@ -179,9 +198,7 @@
                 <div class="exp-content">
                     <h3>Mundo REP</h3>
                     <span class="exp-role" data-key="r6-t">Financial Analyst Jr</span>
-                    <ul class="exp-list">
-                        <li data-key="r6-p1">Control financiero, conciliaciones y apoyo en cierres contables.</li>
-                    </ul>
+                    <ul class="exp-list"><li>Control financiero y cierres contables.</li></ul>
                 </div>
             </div>
         </section>
@@ -191,16 +208,16 @@
         const i18n = {
             en: {
                 "h-title": "Engineering Profitability Through <span>Data Systems.</span>",
-                "h-desc": "Senior Professional with 9+ years of experience transforming complex data into profitability strategies through advanced automation and Generative AI.",
-                "b-cv": "Download CV", "s-exp": "Career History",
+                "h-desc": "Senior Professional with 9+ years experience transforming data into profit through AI and automation.",
+                "b-cv": "Download CV", "s-tech": "Technical Skills", "s-exp": "Career History",
                 "r1-t": "Revenue Management Analyst", "r2-t": "Regional Revenue Manager",
                 "r3-t1": "Senior Tax Analyst", "r3-t2": "Process Developer (AR)",
                 "r4-t": "Process Developer (AR)", "r5-t": "Process Developer (AR)", "r6-t": "Financial Analyst Jr"
             },
             es: {
                 "h-title": "Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span>",
-                "h-desc": "Profesional Senior con más de 9 años de experiencia transformando datos complejos en estrategias de rentabilidad mediante automatización avanzada e IA generativa.",
-                "b-cv": "Descargar CV", "s-exp": "Historial Profesional",
+                "h-desc": "Profesional Senior con más de 9 años de experiencia transformando datos complejos en estrategias de rentabilidad.",
+                "b-cv": "Descargar CV", "s-tech": "Habilidades Técnicas", "s-exp": "Historial Profesional",
                 "r1-t": "Analista de Revenue Management", "r2-t": "Regional Revenue Manager",
                 "r3-t1": "Analista Senior de Impuestos", "r3-t2": "Desarrollador de Procesos (AR)",
                 "r4-t": "Desarrollador de Procesos (AR)", "r5-t": "Desarrollador de Procesos (AR)", "r6-t": "Analista Financiero Jr"
@@ -208,12 +225,26 @@
         };
 
         function setLang(lang, btn) {
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if(i18n[lang][key]) el.innerHTML = i18n[lang][key];
-            });
+            const logo = document.getElementById('name-logo');
+            const main = document.getElementById('main-content');
+            
+            // Inicia Animación
+            logo.classList.add('processing');
+            main.classList.add('loading');
+
+            setTimeout(() => {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                document.querySelectorAll('[data-key]').forEach(el => {
+                    const key = el.getAttribute('data-key');
+                    if(i18n[lang] && i18n[lang][key]) el.innerHTML = i18n[lang][key];
+                });
+
+                // Finaliza Animación
+                logo.classList.remove('processing');
+                main.classList.remove('loading');
+            }, 700);
         }
     </script>
 </body>
