@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CÉSAR MADRIGAL RODRÍGUEZ | Revenue Management</title>
+    <title>CÉSAR MADRIGAL RODRÍGUEZ | Revenue Management & Financial Analytics</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- SEO -->
+    <meta name="description" content="Especialista en Revenue Management y Finanzas con más de 9 años de experiencia. Ingeniería de rentabilidad mediante sistemas de datos y automatización.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -19,7 +22,8 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
         .bg-glow {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -27,113 +31,76 @@
             z-index: -1;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
-        /* HEADER LIMPIO Y AJUSTADO */
-        header {
-            padding: 2.5rem 0;
-            background: linear-gradient(to bottom, var(--bg), transparent);
-            position: relative;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start; /* Alinea el idioma arriba con el nombre */
-        }
+        /* HEADER */
+        header { padding: 3rem 0 1rem; position: sticky; top: 0; background: rgba(5,7,10,0.8); backdrop-filter: blur(12px); z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: flex-start; }
         
-        /* NOMBRE GRANDE Y BIEN ACOMODADO */
         .logo { 
             font-weight: 800; 
-            font-size: clamp(2rem, 6vw, 4rem); 
-            line-height: 0.85; /* Tighter line height for executive look */
+            font-size: clamp(2.2rem, 6vw, 3.8rem); 
+            line-height: 0.8;
             letter-spacing: -3px;
             text-transform: uppercase;
-            background: linear-gradient(180deg, #ffffff 50%, #64748b 100%);
+            background: linear-gradient(180deg, #ffffff 40%, #64748b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .logo span { font-size: 0.9em; display: block; }
 
-        .logo span {
-            display: block;
-            font-size: 0.95em;
-        }
-        
-        /* FILTRO DE IDIOMA DISCRETO A LA DERECHA */
         .lang-switcher {
-            display: flex;
-            gap: 0.25rem;
-            background: rgba(255,255,255,0.03);
-            padding: 4px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
+            display: flex; gap: 0.2rem; background: rgba(255,255,255,0.03);
+            padding: 4px; border-radius: 10px; border: 1px solid var(--border);
         }
-
         .lang-btn {
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: var(--text-dim);
-            padding: 6px 10px;
-            border-radius: 6px;
-            transition: var(--transition);
+            background: transparent; border: none; cursor: pointer;
+            font-size: 0.7rem; font-weight: 800; color: var(--text-dim);
+            padding: 6px 10px; border-radius: 6px; transition: var(--transition);
         }
+        .lang-btn.active { background: var(--accent); color: var(--bg); }
 
-        .lang-btn.active {
-            background: var(--accent);
-            color: var(--bg);
-        }
+        /* HERO */
+        .hero { padding: 6rem 0 4rem; }
+        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.2rem); line-height: 1.1; font-weight: 800; letter-spacing: -1px; margin-bottom: 2rem; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 750px; margin-bottom: 3rem; }
 
-        /* HERO SECTION */
-        .hero { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; padding: 4rem 0; }
-        
-        .hero h1 { 
-            font-size: clamp(2.5rem, 8vw, 4.5rem); 
-            line-height: 1.1; 
-            margin-bottom: 2rem; 
-            font-weight: 800; 
-            letter-spacing: -1px;
-        }
-        
-        .hero h1 span {
-            color: var(--accent);
-            background: linear-gradient(90deg, var(--accent), #f8fafc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 700px; margin-bottom: 3rem; }
-
-        .social-row { display: flex; flex-wrap: wrap; gap: 1rem; }
-
+        .social-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 4rem; }
         .btn-action {
             display: inline-flex; align-items: center; gap: 0.75rem;
             padding: 1rem 1.8rem; border-radius: 12px; text-decoration: none; 
             font-weight: 700; font-size: 0.95rem; transition: var(--transition);
         }
-
         .btn-mail { background: var(--accent); color: var(--bg); }
         .btn-cv { border: 1px solid var(--border); color: white; }
         .btn-cv:hover { border-color: var(--accent); color: var(--accent); }
-        .btn-wa { background: #25d366; color: white; }
-        .btn-li { background: #0077b5; color: white; }
 
-        .btn-action:hover { transform: translateY(-3px); }
+        /* SECCIONES */
+        section { padding: 4rem 0; border-top: 1px solid var(--border); }
+        .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 3rem; font-weight: 800; }
 
-        /* SECCIÓN EXPERTISE */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .project-card {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: 20px; padding: 2rem;
-        }
+        /* EXPERIENCIA */
+        .exp-item { margin-bottom: 4rem; }
+        .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; flex-wrap: wrap; }
+        .exp-company { font-size: 1.5rem; font-weight: 800; color: #fff; }
+        .exp-role { font-size: 1.1rem; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; display: block; }
+        .exp-date { font-size: 0.9rem; color: var(--text-dim); }
+        .exp-list { list-style: none; }
+        .exp-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: var(--text-dim); font-size: 0.95rem; }
+        .exp-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+
+        /* TOOLS & TAGS */
+        .tags-container { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .tag { background: var(--surface); border: 1px solid var(--border); padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; color: var(--text); transition: var(--transition); }
+        .tag:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+        footer { padding: 4rem 0; text-align: center; color: var(--text-dim); border-top: 1px solid var(--border); font-size: 0.8rem; }
 
         @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 1.5rem; }
-            .lang-switcher { align-self: flex-end; }
-            .logo { font-size: 2.5rem; }
+            .exp-header { flex-direction: column; }
+            .logo { font-size: 2.8rem; }
+            .btn-action { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -142,9 +109,7 @@
 
     <header>
         <div class="container nav">
-            <div class="logo">
-                CÉSAR MADRIGAL<br><span>RODRÍGUEZ</span>
-            </div>
+            <div class="logo">CÉSAR MADRIGAL<br><span>RODRÍGUEZ</span></div>
             <div class="lang-switcher">
                 <button class="lang-btn" onclick="setLang('en', this)">EN</button>
                 <button class="lang-btn active" onclick="setLang('es', this)">ES</button>
@@ -154,63 +119,149 @@
     </header>
 
     <main class="container">
-        <section class="hero">
-            <h1 data-key="hero-h1">Engineering Profitability Through <span>Data Systems.</span></h1>
-            <p data-key="hero-p">Finance & Revenue Management professional with 9+ years across BPO, FMCG, and regional car rental. I bridge complex operations with automated financial intelligence.</p>
+        <section class="hero" style="border:none">
+            <h1 data-key="hero-h1">Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span></h1>
+            <p data-key="hero-p">Profesional en Revenue Management y Finanzas con más de 9 años de experiencia. Especializado en transformar datos complejos en decisiones ejecutivas mediante automatización y analítica avanzada.</p>
             
             <div class="social-row">
                 <a href="mailto:cesarmadrigalrodriguez24@gmail.com" class="btn-action btn-mail">
-                    <span data-key="btn-contact">Email Me</span>
+                    <span data-key="btn-contact">Escríbeme</span>
                 </a>
                 <a href="CV_Cesar_Madrigal_ES.pdf" id="cv-download" download class="btn-action btn-cv">
-                    <span data-key="btn-cv">Download CV</span>
+                    <span data-key="btn-cv">Descargar CV</span>
                 </a>
-                <a href="https://wa.me/50684349442" target="_blank" class="btn-action btn-wa">WhatsApp</a>
-                <a href="https://www.linkedin.com/in/c%C3%A9sar-madrigal-rodr%C3%ADguez-3a23351b2" target="_blank" class="btn-action btn-li">LinkedIn</a>
+                <a href="https://wa.me/50684349442" target="_blank" class="btn-action" style="background:#25d366; color:white">WhatsApp</a>
+                <a href="https://www.linkedin.com/in/c%C3%A9sar-madrigal-rodr%C3%ADguez-3a23351b2" target="_blank" class="btn-action" style="background:#0077b5; color:white">LinkedIn</a>
             </div>
         </section>
 
-        <div class="projects-grid">
-            <div class="project-card">
-                <h4 data-key="p1-title" style="margin-bottom:0.5rem">Corporate Finance</h4>
-                <p data-key="p1-desc" style="color:var(--text-dim); font-size:0.9rem">Advanced P&L management and capital structure modeling.</p>
+        <section id="experience">
+            <h2 class="section-title" data-key="title-exp">Experiencia Profesional</h2>
+            
+            <!-- FIFCO -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-company">FIFCO</div>
+                    <div class="exp-date">Nov 2025 – Feb 2026</div>
+                </div>
+                <span class="exp-role" data-key="r1-title">Analista de Revenue Management</span>
+                <ul class="exp-list">
+                    <li data-key="r1-p1">Gestión de aprobación de flujos comerciales mediante PriceFx para 6 categorías de portafolio (Cerveza, BAS, Vinos, Destilados).</li>
+                    <li data-key="r1-p2">Elaboración y actualización de P&L y ladders de precios asegurando alineación estratégica y objetivos de margen.</li>
+                </ul>
             </div>
-            <div class="project-card">
-                <h4 data-key="p2-title" style="margin-bottom:0.5rem">Revenue Management</h4>
-                <p data-key="p2-desc" style="color:var(--text-dim); font-size:0.9rem">Dynamic pricing engines and demand elasticity analysis.</p>
+
+            <!-- GRUPO ANC -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-company">Grupo ANC</div>
+                    <div class="exp-date">Mar 2024 – Nov 2025</div>
+                </div>
+                <span class="exp-role" data-key="r2-title">Regional Revenue Manager (4 Países)</span>
+                <ul class="exp-list">
+                    <li data-key="r2-p1">Dirección de estrategia de optimización para flota de 500+ vehículos en Costa Rica, Guatemala, Perú y Nicaragua.</li>
+                    <li data-key="r2-p2">Diseño de modelos de pricing dinámico integrando forecasting, estacionalidad y monitoreo competitivo en tiempo real.</li>
+                    <li data-key="r2-p3">Automatización de captura de tarifas de competidores mediante macros, fortaleciendo el posicionamiento regional.</li>
+                </ul>
             </div>
-            <div class="project-card">
-                <h4 data-key="p4-title" style="margin-bottom:0.5rem">Automation & RPA</h4>
-                <p data-key="p4-desc" style="color:var(--text-dim); font-size:0.9rem">Custom digital workers to eliminate manual tasks (VBA/Python).</p>
+
+            <!-- GENPACT -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-company">Genpact (Walmart LATAM)</div>
+                    <div class="exp-date">Feb 2022 – Mar 2024</div>
+                </div>
+                <span class="exp-role" data-key="r3-title">Senior Tax Analyst / Process Developer</span>
+                <ul class="exp-list">
+                    <li data-key="r3-p1">Automatización de flujos de reportes eliminando el 60% del tiempo de procesamiento manual con Power Automate.</li>
+                    <li data-key="r3-p2">Desarrollo de suite de macros VBA reduciendo el tiempo de procesamiento en un 35% y eliminando errores operativos.</li>
+                    <li data-key="r3-p3">Diseño de dashboards en Power BI para el seguimiento de rendimiento financiero adoptados por gerencia.</li>
+                </ul>
             </div>
-        </div>
+        </section>
+
+        <section id="tech">
+            <h2 class="section-title" data-key="title-tech">Herramientas & Competencias</h2>
+            <div class="tags-container">
+                <span class="tag">Revenue Management</span>
+                <span class="tag">Pricing Strategy</span>
+                <span class="tag">Power BI</span>
+                <span class="tag">SQL / BigQuery</span>
+                <span class="tag">Python</span>
+                <span class="tag">VBA / Macros</span>
+                <span class="tag">PriceFx</span>
+                <span class="tag">React (Dashboards)</span>
+                <span class="tag">Lean Six Sigma Green Belt</span>
+                <span class="tag">Power Automate</span>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title" data-key="title-edu">Educación</h2>
+            <div class="exp-item">
+                <div class="exp-company" style="font-size:1.1rem">Bachillerato en Administración de Empresas (En Curso)</div>
+                <p style="color:var(--text-dim)">Universidad Hispanoamericana | 2024 - 2028</p>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2026 CÉSAR MADRIGAL RODRÍGUEZ | Heredia, Costa Rica</p>
+    </footer>
 
     <script>
         const i18n = {
             en: {
                 "hero-h1": "Engineering Profitability Through <span>Data Systems.</span>",
-                "hero-p": "Finance & Revenue Management professional with 9+ years across BPO, FMCG, and regional car rental.",
+                "hero-p": "Finance & Revenue Management professional with 9+ years of experience. Specialized in turning complex data into executive decisions via automation and advanced analytics.",
                 "btn-contact": "Email Me", "btn-cv": "Download CV",
-                "p1-title": "Corporate Finance", "p1-desc": "Advanced P&L management and capital structure modeling.",
-                "p2-title": "Revenue Management", "p2-desc": "Dynamic pricing engines and demand elasticity analysis.",
-                "p4-title": "Automation & RPA", "p4-desc": "Custom digital workers to eliminate manual tasks (VBA/Python)."
+                "title-exp": "Professional Experience",
+                "title-tech": "Tools & Core Competencies",
+                "title-edu": "Education",
+                "r1-title": "Revenue Management Analyst",
+                "r1-p1": "Managed commercial flow approvals via PriceFx across 6 portfolio categories.",
+                "r1-p2": "Prepared and updated P&L statements and price ladders ensuring strategic alignment.",
+                "r2-title": "Regional Revenue Manager (4 Countries)",
+                "r2-p1": "Directed optimization strategy for 500+ vehicle fleet across CR, GT, PE, and NI.",
+                "r2-p2": "Designed dynamic pricing models integrating forecasting, seasonality, and competitive monitoring.",
+                "r2-p3": "Built automated competitor rate capture tools, strengthening regional positioning.",
+                "r3-title": "Senior Tax Analyst / Process Developer",
+                "r3-p1": "Automated reporting workflows eliminating 60% of manual processing time with Power Automate.",
+                "r3-p2": "Developed VBA macro suite reducing processing time by 35% and cutting error rates.",
+                "r3-p3": "Designed Power BI dashboards for financial performance tracking adopted by management."
             },
             es: {
                 "hero-h1": "Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span>",
-                "hero-p": "Profesional en Revenue Management y Finanzas con 9+ años de experiencia en BPO, FMCG y renta de autos.",
+                "hero-p": "Profesional en Revenue Management y Finanzas con más de 9 años de experiencia. Especializado en transformar datos complejos en decisiones ejecutivas mediante automatización y analítica avanzada.",
                 "btn-contact": "Escríbeme", "btn-cv": "Descargar CV",
-                "p1-title": "Finanzas Corporativas", "p1-desc": "Gestión avanzada de P&L y modelado de estructura de capital.",
-                "p2-title": "Revenue Management", "p2-desc": "Motores de precios dinámicos y análisis de elasticidad.",
-                "p4-title": "Automatización & RPA", "p4-desc": "Robots personalizados para eliminar tareas manuales (VBA/Python)."
+                "title-exp": "Experiencia Profesional",
+                "title-tech": "Herramientas & Competencias",
+                "title-edu": "Educación",
+                "r1-title": "Analista de Revenue Management",
+                "r1-p1": "Gestión de aprobación de flujos comerciales mediante PriceFx para 6 categorías de portafolio.",
+                "r1-p2": "Elaboración y actualización de P&L y ladders de precios asegurando alineación estratégica.",
+                "r2-title": "Regional Revenue Manager (4 Países)",
+                "r2-p1": "Dirección de estrategia de optimización para flota de 500+ vehículos en CR, GT, PE y NI.",
+                "r2-p2": "Diseño de modelos de pricing dinámico integrando forecasting, estacionalidad y monitoreo competitivo.",
+                "r2-p3": "Automatización de captura de tarifas de competidores, fortaleciendo el posicionamiento regional.",
+                "r3-title": "Senior Tax Analyst / Process Developer",
+                "r3-p1": "Automatización de flujos de reportes eliminando el 60% del tiempo manual con Power Automate.",
+                "r3-p2": "Desarrollo de suite de macros VBA reduciendo el tiempo de procesamiento en un 35%.",
+                "r3-p3": "Diseño de dashboards en Power BI para seguimiento financiero adoptados por gerencia."
             },
             pt: {
                 "hero-h1": "Engenharia de Rentabilidade através de <span>Sistemas de Dados.</span>",
-                "hero-p": "Profissional de Revenue e Finanças com 9+ anos em BPO e FMCG.",
+                "hero-p": "Profissional de Revenue e Finanças com 9+ anos de experiência. Especialista em transformar dados complexos em decisões executivas.",
                 "btn-contact": "Enviar Email", "btn-cv": "Baixar CV",
-                "p1-title": "Finanças Corporativas", "p1-desc": "Gestão avançada de P&L e modelagem financeira.",
-                "p2-title": "Revenue Management", "p2-desc": "Motores de preços e análise de elasticidade.",
-                "p4-title": "Automação & RPA", "p4-desc": "Robôs personalizados para tarefas manuais (VBA/Python)."
+                "title-exp": "Experiência Profissional",
+                "title-tech": "Ferramentas & Competências",
+                "title-edu": "Educação",
+                "r1-title": "Analista de Revenue Management",
+                "r2-title": "Gerente Regional de Revenue",
+                "r3-title": "Analista Sênior / Desenvolvedor de Processos",
+                "r1-p1": "Gestão de fluxos comerciais via PriceFx.",
+                "r2-p1": "Direção de estratégia de otimização para frota de 500+ veículos.",
+                "r3-p1": "Automação de fluxos eliminando 60% do tempo manual."
             }
         };
 
