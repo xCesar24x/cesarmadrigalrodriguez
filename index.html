@@ -12,6 +12,8 @@
             --bg: #05070a;
             --surface: #0f1218;
             --accent: #38bdf8;
+            --whatsapp: #25d366;
+            --linkedin: #0077b5;
             --text: #f8fafc;
             --text-dim: #94a3b8;
             --border: rgba(255,255,255,0.08);
@@ -62,6 +64,8 @@
 
         .hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 750px; margin-bottom: 3rem; }
 
+        .social-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+
         section { padding: 6rem 0; }
         .section-title { font-size: 2.5rem; margin-bottom: 3rem; position: relative; font-weight: 800; }
         .section-title::after {
@@ -99,27 +103,28 @@
         .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .tag { background: var(--bg); border: 1px solid var(--border); padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; }
 
-        .btn-primary {
+        .btn-action {
             display: inline-flex; align-items: center; gap: 0.75rem;
-            background: var(--accent); color: var(--bg); padding: 1.25rem 2.5rem;
-            border-radius: 14px; text-decoration: none; font-weight: 800; transition: var(--transition);
+            padding: 1rem 1.5rem; border-radius: 12px; text-decoration: none; 
+            font-weight: 700; font-size: 0.9rem; transition: var(--transition);
+            border: none; cursor: pointer;
         }
-        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(56, 189, 248, 0.4); }
+
+        .btn-mail { background: var(--accent); color: var(--bg); }
+        .btn-whatsapp { background: var(--whatsapp); color: white; }
+        .btn-linkedin { background: var(--linkedin); color: white; }
+
+        .btn-action:hover { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
         .contact-cta { text-align: center; padding: 6rem 2rem; border-radius: 40px; border: 1px solid var(--border); background: linear-gradient(rgba(56, 189, 248, 0.03), transparent); }
+        .contact-cta .social-row { justify-content: center; }
 
         [data-aos] { opacity: 0; transform: translateY(30px); transition: var(--transition); }
         [data-aos].visible { opacity: 1; transform: translateY(0); }
 
         footer { padding: 4rem 0; text-align: center; color: var(--text-dim); border-top: 1px solid var(--border); }
 
-        .exp-meta h4 { margin-top: 0.25rem; font-size: 1.1rem; }
-        .exp-meta p { color: var(--text-dim); font-size: 0.9rem; margin-top: 0.25rem; }
-        .exp-meta .subrole { font-size: 0.82rem; color: var(--accent); margin-top: 0.5rem; font-weight: 600; }
-        .exp-content ul { padding-left: 1.2rem; color: var(--text-dim); }
-        .exp-content ul li { margin-bottom: 0.5rem; font-size: 0.95rem; }
-
-        @media (max-width: 850px) { .exp-card { grid-template-columns: 1fr; } .hero h1 { font-size: 2.8rem; } }
+        @media (max-width: 850px) { .exp-card { grid-template-columns: 1fr; } .hero h1 { font-size: 2.8rem; } .social-row { flex-direction: column; width: 100%; } .btn-action { width: 100%; justify-content: center; } }
     </style>
 </head>
 <body>
@@ -140,11 +145,17 @@
         <section class="hero">
             <p class="badge" data-key="role-title">Revenue Management & Financial Analytics</p>
             <h1 data-key="hero-h1">Engineering Profitability Through <span>Data Systems.</span></h1>
-            <p data-key="hero-p">Finance & Revenue Management professional with 9+ years across BPO, FMCG, car rental, and financial administration. I bridge complex operations with automated financial intelligence.</p>
-            <div>
-                <a href="mailto:cesarmadrigalrodriguez24@gmail.com" class="btn-primary">
-                    <span data-key="btn-contact">Connect with Me</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <p data-key="hero-p">Finance & Revenue Management professional with 9+ years across BPO, FMCG, and regional car rental. I bridge complex operations with automated financial intelligence.</p>
+            
+            <div class="social-row">
+                <a href="mailto:cesarmadrigalrodriguez24@gmail.com" class="btn-action btn-mail">
+                    <span data-key="btn-contact">Email Me</span>
+                </a>
+                <a href="https://wa.me/50684349442" target="_blank" class="btn-action btn-whatsapp">
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.linkedin.com/in/c%C3%A9sar-madrigal-rodr%C3%ADguez-3a23351b2" target="_blank" class="btn-action btn-linkedin">
+                    <span>LinkedIn</span>
                 </a>
             </div>
         </section>
@@ -153,24 +164,24 @@
             <h2 class="section-title" data-key="title-expertise">Core Expertises</h2>
             <div class="projects-grid">
                 <div class="project-card" data-aos>
-                    <div><span class="impact-label" data-key="p1-label">Strategic Finance</span><h4 data-key="p1-title">Corporate Finance</h4><p data-key="p1-desc">Advanced P&L management, capital structure, and FP&A modeling. Transforming financial data into strategic roadmaps.</p></div>
-                    <div class="tag-cloud"><span class="tag">FP&A</span><span class="tag">Modeling</span><span class="tag">Power BI</span></div>
+                    <div><span class="impact-label">Strategic Finance</span><h4 data-key="p1-title">Corporate Finance</h4><p data-key="p1-desc">Advanced P&L management and capital structure modeling.</p></div>
+                    <div class="tag-cloud"><span class="tag">FP&A</span><span class="tag">Modeling</span></div>
                 </div>
                 <div class="project-card" data-aos>
-                    <div><span class="impact-label" data-key="p2-label">Profit Maximization</span><h4 data-key="p2-title">Revenue Management</h4><p data-key="p2-desc">Dynamic pricing engines and demand elasticity analysis. Maximizing margins through analytical precision.</p></div>
-                    <div class="tag-cloud"><span class="tag">Pricing</span><span class="tag">Elasticity</span><span class="tag">PriceFx</span></div>
+                    <div><span class="impact-label">Profit Maximization</span><h4 data-key="p2-title">Revenue Management</h4><p data-key="p2-desc">Dynamic pricing engines and demand elasticity analysis.</p></div>
+                    <div class="tag-cloud"><span class="tag">Pricing</span><span class="tag">PriceFx</span></div>
                 </div>
                 <div class="project-card" data-aos>
-                    <div><span class="impact-label" data-key="p3-label">Fiscal Compliance</span><h4 data-key="p3-title">Tax Strategy</h4><p data-key="p3-desc">Expert-level fiscal oversight and optimized reporting. Navigating complex tax landscapes with precision.</p></div>
+                    <div><span class="impact-label">Fiscal Compliance</span><h4 data-key="p3-title">Tax Strategy</h4><p data-key="p3-desc">Expert-level fiscal oversight and optimized reporting.</p></div>
                     <div class="tag-cloud"><span class="tag">Tax Expert</span><span class="tag">IFRS</span></div>
                 </div>
                 <div class="project-card" data-aos>
-                    <div><span class="impact-label" data-key="p4-label">Operational Excellence</span><h4 data-key="p4-title">Automation & RPA</h4><p data-key="p4-desc">Building custom digital workers. Converting manual, repetitive tasks into high-speed automated workflows.</p></div>
-                    <div class="tag-cloud"><span class="tag">VBA</span><span class="tag">Power Automate</span><span class="tag">Lean Six Sigma</span></div>
+                    <div><span class="impact-label">Operational Excellence</span><h4 data-key="p4-title">Automation & RPA</h4><p data-key="p4-desc">Building custom digital workers to eliminate manual tasks.</p></div>
+                    <div class="tag-cloud"><span class="tag">VBA</span><span class="tag">Lean Six Sigma</span></div>
                 </div>
                 <div class="project-card" data-aos>
-                    <div><span class="impact-label" data-key="p5-label">Decision Support</span><h4 data-key="p5-title">Advanced Data Analytics</h4><p data-key="p5-desc">From raw SQL/BigQuery data to C-Suite dashboards. Data storytelling that drives business decisions.</p></div>
-                    <div class="tag-cloud"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">BigQuery</span><span class="tag">React</span></div>
+                    <div><span class="impact-label">Decision Support</span><h4 data-key="p5-title">Advanced Data Analytics</h4><p data-key="p5-desc">SQL/BigQuery storytelling for executive decision-making.</p></div>
+                    <div class="tag-cloud"><span class="tag">Power BI</span><span class="tag">SQL</span></div>
                 </div>
             </div>
         </section>
@@ -178,67 +189,33 @@
         <section id="experience">
             <h2 class="section-title" data-key="title-exp">Professional Journey</h2>
             <div class="timeline">
-
-                <!-- FIFCO -->
                 <div class="exp-card" data-aos>
-                    <div class="exp-meta">
-                        <span class="badge">Nov 2025 – Feb 2026</span>
-                        <h4>FIFCO</h4>
-                        <p data-key="fifco-role">Revenue Management Analyst</p>
-                    </div>
-                    <div class="exp-content">
-                        <ul>
-                            <li data-key="fifco-l1">Optimized P&L via PriceFx across 6 portfolio categories (Beer, BAS, Wine, Spirits, Nutrition, Beverages).</li>
-                            <li data-key="fifco-l2">Engineered dynamic price ladders ensuring maximum margin contribution for Imperial and Pilsen brands.</li>
-                            <li data-key="fifco-l3">Built competitive intelligence dashboards in React + BigQuery for real-time pricing decisions.</li>
-                        </ul>
-                    </div>
+                    <div class="exp-meta"><span class="badge">Current</span><h4>FIFCO</h4><p data-key="fifco-role">Revenue Management Analyst</p></div>
+                    <div class="exp-content"><ul><li data-key="fifco-l1">Optimized P&L via PriceFx for 6 portfolio categories.</li><li data-key="fifco-l2">Engineered dynamic price ladders for premium brands.</li></ul></div>
                 </div>
-
-                <!-- Grupo ANC -->
                 <div class="exp-card" data-aos>
-                    <div class="exp-meta">
-                        <span class="badge">Mar 2024 – Nov 2025</span>
-                        <h4>Grupo ANC (National / Alamo)</h4>
-                        <p data-key="anc-role">Regional Revenue Manager</p>
-                    </div>
-                    <div class="exp-content">
-                        <ul>
-                            <li data-key="anc-l1">Architected fleet strategy for 500+ assets across 4 LATAM markets.</li>
-                            <li data-key="anc-l2">Built VBA-powered dynamic pricing macros and competitive rate tracking tools.</li>
-                            <li data-key="anc-l3">Developed demand-driven seasonal pricing models improving occupancy and margin.</li>
-                        </ul>
-                    </div>
+                    <div class="exp-meta"><span class="badge">2024 - 2025</span><h4>Grupo ANC</h4><p data-key="anc-role">Regional Revenue Manager</p></div>
+                    <div class="exp-content"><ul><li data-key="anc-l1">Fleet strategy for 500+ assets in 4 LATAM markets.</li><li data-key="anc-l2">Built VBA pricing macros and rate tracking tools.</li></ul></div>
                 </div>
-
-                <!-- Genpact — split into 2 roles -->
                 <div class="exp-card" data-aos>
-                    <div class="exp-meta">
-                        <span class="badge">Feb 2022 – Mar 2024</span>
-                        <h4>Genpact</h4>
-                        <p data-key="gen-role-senior">Senior Tax Analyst</p>
-                        <p class="subrole" data-key="gen-subrole">↑ Promoted from Process Developer AR (Nov 2019)</p>
-                    </div>
-                    <div class="exp-content">
-                        <ul>
-                            <li data-key="gen-l1">Redesigned financial workflows achieving 60% effort reduction via automation.</li>
-                            <li data-key="gen-l2">Lean Digital Ambassador — led continuous improvement initiatives (Lean Six Sigma Green Belt).</li>
-                            <li data-key="gen-l3">Managed Walmart LATAM AR portfolio spanning Mexico and Central America.</li>
-                        </ul>
-                    </div>
+                    <div class="exp-meta"><span class="badge">2022 - 2024</span><h4>Genpact</h4><p data-key="gen-role">Senior Tax Analyst</p></div>
+                    <div class="exp-content"><ul><li data-key="gen-l1">Redesigned workflows with 60% automation reduction.</li><li data-key="gen-l2">Lean Digital Ambassador (Green Belt).</li></ul></div>
                 </div>
-
             </div>
         </section>
 
         <section id="contact">
             <div class="contact-cta" data-aos>
                 <h2 data-key="cta-h2">Let's build something impactful.</h2>
-                <p data-key="cta-p">Open to new opportunities in Revenue Management, Financial Analytics, and BPO Finance Leadership.</p>
-                <a href="mailto:cesarmadrigalrodriguez24@gmail.com" class="btn-primary">
-                    <span data-key="cta-btn">Get in Touch</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </a>
+                <p data-key="cta-p">Available for strategic consulting and project-based work.</p>
+                <div class="social-row">
+                    <a href="mailto:cesarmadrigalrodriguez24@gmail.com" class="btn-action btn-mail">
+                        <span data-key="cta-btn">Email Me</span>
+                    </a>
+                    <a href="https://wa.me/50684349442" target="_blank" class="btn-action btn-whatsapp">
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -252,89 +229,53 @@
             en: {
                 "role-title": "Revenue Management & Financial Analytics",
                 "hero-h1": "Engineering Profitability Through <span>Data Systems.</span>",
-                "hero-p": "Finance & Revenue Management professional with 9+ years across BPO, FMCG, car rental, and financial administration. I bridge complex operations with automated financial intelligence.",
-                "btn-contact": "Connect with Me",
+                "hero-p": "Finance & Revenue Management professional with 9+ years across BPO, FMCG, and regional car rental. I bridge complex operations with automated financial intelligence.",
+                "btn-contact": "Email Me",
                 "title-expertise": "Core Expertises",
-                "p1-label": "Strategic Finance", "p1-title": "Corporate Finance", "p1-desc": "Advanced P&L management and FP&A modeling. Transforming financial data into strategic roadmaps.",
-                "p2-label": "Profit Maximization", "p2-title": "Revenue Management", "p2-desc": "Dynamic pricing engines and demand elasticity analysis. Maximizing margins through analytical precision.",
-                "p3-label": "Fiscal Compliance", "p3-title": "Tax Strategy", "p3-desc": "Expert-level fiscal oversight and optimized reporting. Navigating complex tax landscapes with precision.",
-                "p4-label": "Operational Excellence", "p4-title": "Automation & RPA", "p4-desc": "Building custom digital workers. Converting manual tasks into high-speed automated workflows.",
-                "p5-label": "Decision Support", "p5-title": "Advanced Data Analytics", "p5-desc": "From SQL/BigQuery to C-Suite dashboards. Data storytelling that drives immediate business decisions.",
+                "p1-title": "Corporate Finance", "p1-desc": "Advanced P&L management and capital structure modeling.",
+                "p2-title": "Revenue Management", "p2-desc": "Dynamic pricing engines and demand elasticity analysis.",
+                "p3-title": "Tax Strategy", "p3-desc": "Expert-level fiscal oversight and optimized reporting.",
+                "p4-title": "Automation & RPA", "p4-desc": "Building custom digital workers to eliminate manual tasks.",
+                "p5-title": "Advanced Data Analytics", "p5-desc": "SQL/BigQuery storytelling for executive decision-making.",
                 "title-exp": "Professional Journey",
-                "fifco-role": "Revenue Management Analyst",
-                "fifco-l1": "Optimized P&L via PriceFx across 6 portfolio categories.",
-                "fifco-l2": "Engineered dynamic price ladders for Imperial and Pilsen brands.",
-                "fifco-l3": "Built competitive intelligence dashboards in React + BigQuery.",
-                "anc-role": "Regional Revenue Manager",
-                "anc-l1": "Architected fleet strategy for 500+ assets across 4 LATAM markets.",
-                "anc-l2": "Built VBA-powered dynamic pricing macros and rate tracking tools.",
-                "anc-l3": "Developed demand-driven seasonal pricing models.",
-                "gen-role-senior": "Senior Tax Analyst",
-                "gen-subrole": "↑ Promoted from Process Developer AR (Nov 2019)",
-                "gen-l1": "Redesigned workflows achieving 60% effort reduction via automation.",
-                "gen-l2": "Lean Digital Ambassador — Green Belt process improvement.",
-                "gen-l3": "Managed Walmart LATAM AR portfolio across Mexico & Central America.",
-                "cta-h2": "Let's build something impactful.",
-                "cta-p": "Open to new opportunities in Revenue Management, Financial Analytics, and BPO Finance Leadership.",
-                "cta-btn": "Get in Touch"
+                "fifco-role": "Revenue Management Analyst", "fifco-l1": "Optimized P&L via PriceFx.", "fifco-l2": "Dynamic price ladders.",
+                "anc-role": "Regional Revenue Manager", "anc-l1": "Fleet strategy for 4 LATAM markets.", "anc-l2": "VBA pricing macros.",
+                "gen-role": "Senior Tax Analyst", "gen-l1": "60% automation reduction.", "gen-l2": "Lean Digital Ambassador.",
+                "cta-h2": "Let's build something impactful.", "cta-p": "Available for strategic consulting and project-based work.", "cta-btn": "Email Me"
             },
             es: {
                 "role-title": "Revenue Management & Analítica Financiera",
                 "hero-h1": "Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span>",
-                "hero-p": "Profesional en Revenue Management y Finanzas con 9+ años en BPO, FMCG, renta de autos y administración financiera. Conecto operaciones complejas con inteligencia financiera automatizada.",
-                "btn-contact": "Conectar",
-                "title-expertise": "Enfoques de Especialidad",
-                "p1-label": "Finanzas Estratégicas", "p1-title": "Finanzas Corporativas", "p1-desc": "Gestión avanzada de P&L y modelado FP&A. Transformo datos financieros en hojas de ruta estratégicas.",
-                "p2-label": "Maximización de Beneficios", "p2-title": "Revenue Management", "p2-desc": "Motores de precios dinámicos y análisis de elasticidad. Maximizando márgenes con precisión analítica.",
-                "p3-label": "Cumplimiento Fiscal", "p3-title": "Estrategia Fiscal", "p3-desc": "Supervisión y reporte fiscal nivel experto. Gestión de entornos complejos con automatización.",
-                "p4-label": "Excelencia Operativa", "p4-title": "Automatización y RPA", "p4-desc": "Creación de trabajadores digitales. Convierto tareas manuales en flujos automatizados (Lean Six Sigma).",
-                "p5-label": "Soporte de Decisiones", "p5-title": "Análisis de Datos Avanzado", "p5-desc": "De SQL/BigQuery a tableros ejecutivos. Storytelling de datos que impulsa decisiones de negocio.",
-                "title-exp": "Trayectoria Profesional",
-                "fifco-role": "Analista de Revenue Management",
-                "fifco-l1": "Optimización de P&L mediante PriceFx en 6 categorías de portafolio.",
-                "fifco-l2": "Diseño de ladders de precios dinámicos para las marcas Imperial y Pilsen.",
-                "fifco-l3": "Dashboards de inteligencia competitiva en React + BigQuery.",
-                "anc-role": "Regional Revenue Manager",
-                "anc-l1": "Arquitectura de estrategia de flota 500+ activos en 4 mercados LATAM.",
-                "anc-l2": "Macros de pricing dinámico en VBA y herramientas de seguimiento de tarifas.",
-                "anc-l3": "Modelos estacionales basados en demanda para mejora de margen.",
-                "gen-role-senior": "Analista Senior de Impuestos",
-                "gen-subrole": "↑ Promovido desde Process Developer AR (Nov 2019)",
-                "gen-l1": "Rediseño de flujos financieros con 60% de reducción de esfuerzo.",
-                "gen-l2": "Lean Digital Ambassador — Green Belt en mejora continua.",
-                "gen-l3": "Gestión de portafolio AR de Walmart LATAM en México y Centroamérica.",
-                "cta-h2": "Construyamos algo con impacto.",
-                "cta-p": "Abierto a nuevas oportunidades en Revenue Management, Analítica Financiera y Liderazgo de Finanzas BPO.",
-                "cta-btn": "Escribir"
+                "hero-p": "Profesional en Revenue Management y Finanzas con 9+ años en BPO, FMCG y renta de autos. Conecto operaciones complejas con inteligencia financiera automatizada.",
+                "btn-contact": "Escríbeme",
+                "title-expertise": "Especialidades",
+                "p1-title": "Finanzas Corporativas", "p1-desc": "Gestión avanzada de P&L y modelado de estructura de capital.",
+                "p2-title": "Revenue Management", "p2-desc": "Motores de precios dinámicos y análisis de elasticidad de demanda.",
+                "p3-title": "Estrategia Fiscal", "p3-desc": "Supervisión fiscal de alto nivel y reportes optimizados.",
+                "p4-title": "Automatización & RPA", "p4-desc": "Creación de trabajadores digitales para eliminar tareas manuales.",
+                "p5-title": "Análisis de Datos", "p5-desc": "Storytelling con SQL/BigQuery para decisiones ejecutivas.",
+                "title-exp": "Trayectoria",
+                "fifco-role": "Analista de Revenue Management", "fifco-l1": "Optimización de P&L con PriceFx.", "fifco-l2": "Ladders de precios dinámicos.",
+                "anc-role": "Regional Revenue Manager", "anc-l1": "Estrategia de flota en 4 mercados LATAM.", "anc-l2": "Macros de pricing en VBA.",
+                "gen-role": "Analista Senior de Impuestos", "gen-l1": "60% reducción de esfuerzo con automatización.", "gen-l2": "Lean Digital Ambassador.",
+                "cta-h2": "Construyamos algo con impacto.", "cta-p": "Disponible para consultoría estratégica y proyectos por resultados.", "cta-btn": "Escríbeme"
             },
             pt: {
                 "role-title": "Revenue Management & Análise Financeira",
                 "hero-h1": "Engenharia de Rentabilidade através de <span>Sistemas de Dados.</span>",
-                "hero-p": "Profissional de Revenue Management e Finanças com 9+ anos em BPO, FMCG, locação de veículos e administração financeira. Conectando operações complexas com automação inteligente.",
-                "btn-contact": "Entrar em Contato",
-                "title-expertise": "Focos de Especialidade",
-                "p1-label": "Finanças Estratégicas", "p1-title": "Finanças Corporativas", "p1-desc": "Gestão avançada de P&L e modelagem FP&A. Transformando dados em roteiros estratégicos.",
-                "p2-label": "Maximização de Lucros", "p2-title": "Revenue Management", "p2-desc": "Preços dinâmicos e elasticidade de demanda. Maximizando margens com precisão analítica.",
-                "p3-label": "Compliance Fiscal", "p3-title": "Estratégia Fiscal", "p3-desc": "Supervisão e relatórios fiscais de nível especialista. Automação em cenários complexos.",
-                "p4-label": "Excelência Operacional", "p4-title": "Automação e RPA", "p4-desc": "Criação de trabalhadores digitais. Convertendo tarefas manuais em fluxos automatizados Lean.",
-                "p5-label": "Suporte à Decisão", "p5-title": "Análise de Dados Avançada", "p5-desc": "De SQL/BigQuery a dashboards executivos. Storytelling de dados para decisões assertivas.",
+                "hero-p": "Profissional de Revenue e Finanças com 9+ anos em BPO e FMCG. Conectando operações com automação inteligente.",
+                "btn-contact": "Enviar Email",
+                "title-expertise": "Especialidades",
+                "p1-title": "Finanças Corporativas", "p1-desc": "Gestão avançada de P&L e modelagem de capital.",
+                "p2-title": "Revenue Management", "p2-desc": "Preços dinâmicos e análise de elasticidade.",
+                "p3-title": "Estratégia Fiscal", "p3-desc": "Supervisão fiscal e relatórios otimizados.",
+                "p4-title": "Automação & RPA", "p4-desc": "Criação de robôs digitais para tarefas manuais.",
+                "p5-title": "Análise de Datos", "p5-desc": "Storytelling com SQL para decisões executivas.",
                 "title-exp": "Jornada Profissional",
-                "fifco-role": "Analista de Revenue Management",
-                "fifco-l1": "Otimização de P&L via PriceFx em 6 categorias de portfólio.",
-                "fifco-l2": "Engenharia de tabelas de preços para as marcas Imperial e Pilsen.",
-                "fifco-l3": "Dashboards de inteligência competitiva em React + BigQuery.",
-                "anc-role": "Regional Revenue Manager",
-                "anc-l1": "Arquitetura de estratégia de frota 500+ ativos em 4 mercados LATAM.",
-                "anc-l2": "Macros VBA de pricing dinâmico e rastreamento de tarifas.",
-                "anc-l3": "Modelos sazonais baseados em demanda para melhoria de margem.",
-                "gen-role-senior": "Analista Sênior de Impostos",
-                "gen-subrole": "↑ Promovido de Process Developer AR (Nov 2019)",
-                "gen-l1": "Redesenho de fluxos financeiros com 60% de redução de esforço.",
-                "gen-l2": "Lean Digital Ambassador — Green Belt em melhoria contínua.",
-                "gen-l3": "Gestão de portfólio AR da Walmart LATAM no México e América Central.",
-                "cta-h2": "Vamos construir algo com impacto.",
-                "cta-p": "Aberto a novas oportunidades em Revenue Management, Análise Financeira e Liderança de Finanças BPO.",
-                "cta-btn": "Falar Comigo"
+                "fifco-role": "Analista de Revenue Management", "fifco-l1": "Otimização de P&L via PriceFx.", "fifco-l2": "Tabelas de preços dinâmicos.",
+                "anc-role": "Regional Revenue Manager", "anc-l1": "Estratégia de frota LATAM.", "anc-l2": "Macros VBA de pricing.",
+                "gen-role": "Analista Sênior de Impostos", "gen-l1": "60% redução manual com automação.", "gen-l2": "Lean Digital Ambassador.",
+                "cta-h2": "Vamos gerar impacto juntos.", "cta-p": "Disponível para consultoria estratégica e projetos.", "cta-btn": "Enviar Email"
             }
         };
 
@@ -345,7 +286,7 @@
             });
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
-                if(i18n[lang] && i18n[lang][key]) el.innerHTML = i18n[lang][key];
+                if(i18n[lang][key]) el.innerHTML = i18n[lang][key];
             });
         }
 
