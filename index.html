@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>César Madrigal R. | Revenue Management & Financial Analytics</title>
     
+    <!-- SEO & Social Media Metatags -->
+    <meta name="description" content="Especialista en Revenue Management y Finanzas con más de 9 años de experiencia. Ingeniería de rentabilidad mediante sistemas de datos y automatización RPA.">
+    <meta property="og:title" content="César Madrigal R. | Revenue Management & Financial Analytics">
+    <meta property="og:description" content="Bridging complex operations with automated financial intelligence. Expert in P&L, Pricing and RPA.">
+    <meta property="og:type" content="website">
+    <meta name="author" content="César Madrigal Rodríguez">
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -14,6 +21,7 @@
             --accent: #38bdf8;
             --whatsapp: #25d366;
             --linkedin: #0077b5;
+            --cv-color: #6366f1;
             --text: #f8fafc;
             --text-dim: #94a3b8;
             --border: rgba(255,255,255,0.08);
@@ -34,7 +42,7 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
         header {
-            position: fixed; top: 0; width: 100%; padding: 1.2rem 0; z-index: 1000;
+            position: fixed; top: 0; width: 100%; padding: 1rem 0; z-index: 1000;
             backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); background: var(--glass);
         }
 
@@ -42,23 +50,24 @@
         
         .logo { 
             font-weight: 800; 
-            font-size: 2rem; 
+            font-size: clamp(1.2rem, 4vw, 1.8rem); 
             letter-spacing: -0.5px;
             background: linear-gradient(90deg, #fff, var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
-        .lang-switcher { display: flex; gap: 1.2rem; align-items: center; }
+        .lang-switcher { display: flex; gap: 0.5rem; align-items: center; }
 
         .lang-btn {
-            background: transparent; border: none; cursor: pointer;
-            font-size: 1.5rem; filter: grayscale(1); transition: var(--transition);
-            opacity: 0.5;
+            background: transparent; border: 1px solid transparent; cursor: pointer;
+            font-size: 1.2rem; filter: grayscale(1); transition: var(--transition);
+            opacity: 0.5; padding: 5px; border-radius: 8px;
         }
 
         .lang-btn:hover, .lang-btn.active {
             filter: grayscale(0); opacity: 1; transform: scale(1.1);
+            border-color: var(--border); background: rgba(255,255,255,0.05);
         }
 
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 80px; }
@@ -69,14 +78,14 @@
             display: block;
         }
 
-        .hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 750px; margin-bottom: 3rem; }
+        .hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 750px; margin-bottom: 3rem; transition: opacity 0.3s; }
 
         .social-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
 
         section { padding: 6rem 0; }
-        .section-title { font-size: 2.5rem; margin-bottom: 3.5rem; position: relative; font-weight: 800; }
+        .section-title { font-size: 2.5rem; margin-bottom: 3rem; position: relative; font-weight: 800; }
         .section-title::after {
-            content: ''; position: absolute; bottom: -12px; left: 0;
+            content: ''; position: absolute; bottom: -10px; left: 0;
             width: 60px; height: 4px; background: var(--accent);
         }
 
@@ -87,46 +96,56 @@
         .project-card {
             background: var(--surface); border: 1px solid var(--border);
             border-radius: 24px; padding: 2.5rem; transition: var(--transition);
+            display: flex; flex-direction: column; justify-content: space-between;
         }
 
-        .project-card:hover { border-color: var(--accent); transform: translateY(-8px); }
-
-        /* Estilos de Experiencia Restaurados */
-        .timeline { display: flex; flex-direction: column; gap: 2rem; }
-        .exp-card {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: 20px; padding: 2.5rem; display: grid;
-            grid-template-columns: 280px 1fr; gap: 2rem; transition: var(--transition);
+        .project-card:hover {
+            border-color: var(--accent); transform: translateY(-8px);
+            box-shadow: 0 10px 40px rgba(56, 189, 248, 0.1);
         }
-        .exp-card:hover { border-color: rgba(56, 189, 248, 0.3); }
-        .exp-meta h4 { font-size: 1.4rem; color: #fff; margin-bottom: 0.2rem; }
-        .exp-meta p { color: var(--accent); font-weight: 600; font-size: 0.95rem; }
-        .exp-content ul { list-style: none; color: var(--text-dim); }
-        .exp-content li { margin-bottom: 0.8rem; position: relative; padding-left: 1.5rem; }
-        .exp-content li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
 
-        .badge { display: inline-block; padding: 4px 12px; background: rgba(56, 189, 248, 0.1); color: var(--accent); border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.8rem; text-transform: uppercase; }
-        .tag { background: var(--bg); border: 1px solid var(--border); padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; margin-right: 5px; color: var(--text-dim); }
+        .impact-metric {
+            font-size: 0.8rem; font-weight: 800; color: var(--accent);
+            background: rgba(56, 189, 248, 0.1); padding: 4px 10px;
+            border-radius: 6px; margin-top: 1rem; display: inline-block;
+        }
+
+        .impact-label { font-size: 0.75rem; text-transform: uppercase; color: var(--accent); font-weight: 800; margin-bottom: 0.75rem; display: block; letter-spacing: 1px; }
+        .project-card h4 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+        .badge { display: inline-block; padding: 4px 12px; background: rgba(56, 189, 248, 0.1); color: var(--accent); border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .tag { background: var(--bg); border: 1px solid var(--border); padding: 5px 12px; border-radius: 6px; font-size: 0.8rem; margin-right: 4px; margin-top: 5px; display: inline-block; }
 
         .btn-action {
             display: inline-flex; align-items: center; gap: 0.75rem;
-            padding: 1rem 1.8rem; border-radius: 12px; text-decoration: none; 
-            font-weight: 700; font-size: 0.95rem; transition: var(--transition);
+            padding: 1rem 1.5rem; border-radius: 12px; text-decoration: none; 
+            font-weight: 700; font-size: 0.9rem; transition: var(--transition);
+            border: none; cursor: pointer;
         }
 
         .btn-mail { background: var(--accent); color: var(--bg); }
         .btn-whatsapp { background: var(--whatsapp); color: white; }
         .btn-linkedin { background: var(--linkedin); color: white; }
+        .btn-cv { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .btn-cv:hover { border-color: var(--cv-color); color: var(--cv-color); }
+
+        .btn-action:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+        .tools-section { margin-top: 4rem; text-align: center; }
+        .tools-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; opacity: 0.8; }
 
         .contact-cta { text-align: center; padding: 6rem 2rem; border-radius: 40px; border: 1px solid var(--border); background: linear-gradient(rgba(56, 189, 248, 0.03), transparent); }
 
         footer { padding: 4rem 0; text-align: center; color: var(--text-dim); border-top: 1px solid var(--border); font-size: 0.9rem; }
 
+        /* Animación de cambio de idioma */
+        .fade-out { opacity: 0; transform: translateY(5px); }
+        [data-key] { transition: all 0.3s ease; }
+
         @media (max-width: 850px) { 
-            .exp-card { grid-template-columns: 1fr; padding: 1.5rem; } 
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 2.8rem; } 
             .btn-action { width: 100%; justify-content: center; }
-            .logo { font-size: 1.5rem; }
+            .social-row { flex-direction: column; }
         }
     </style>
 </head>
@@ -137,9 +156,9 @@
         <div class="container nav">
             <div class="logo">CÉSAR MADRIGAL R.</div>
             <div class="lang-switcher">
-                <button class="lang-btn active" onclick="setLang('en')" title="English">🇺🇸</button>
-                <button class="lang-btn" onclick="setLang('es')" title="Español">🇨🇷</button>
-                <button class="lang-btn" onclick="setLang('pt')" title="Português">🇧🇷</button>
+                <button class="lang-btn active" onclick="changeLang('en', this)" aria-label="English">🇺🇸</button>
+                <button class="lang-btn" onclick="changeLang('es', this)" aria-label="Español">🇨🇷</button>
+                <button class="lang-btn" onclick="changeLang('pt', this)" aria-label="Português">🇧🇷</button>
             </div>
         </div>
     </header>
@@ -154,6 +173,10 @@
                 <a href="mailto:cesarmadrigalrodriguez24@gmail.com" class="btn-action btn-mail">
                     <span data-key="btn-contact">Email Me</span>
                 </a>
+                <!-- Reemplazar el href con el link real de tu CV en Drive/Dropbox -->
+                <a href="#" target="_blank" class="btn-action btn-cv">
+                    <span data-key="btn-cv">Download CV</span>
+                </a>
                 <a href="https://wa.me/50684349442" target="_blank" class="btn-action btn-whatsapp">
                     <span>WhatsApp</span>
                 </a>
@@ -167,67 +190,44 @@
             <h2 class="section-title" data-key="title-expertise">Core Expertises</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <span class="badge">Strategy</span>
-                    <h4 data-key="p1-title">Corporate Finance</h4>
-                    <p data-key="p1-desc" style="color: var(--text-dim); margin-bottom: 1.5rem;">Advanced P&L management and capital structure modeling.</p>
-                    <div><span class="tag">FP&A</span><span class="tag">Modeling</span></div>
+                    <div>
+                        <span class="impact-label" data-key="p1-label">Strategic Finance</span>
+                        <h4 data-key="p1-title">Corporate Finance</h4>
+                        <p data-key="p1-desc" style="color: var(--text-dim);">Advanced P&L management and capital structure modeling to drive long-term sustainability.</p>
+                        <span class="impact-metric" data-key="p1-metric">ROI Focused</span>
+                    </div>
+                    <div style="margin-top: 1.5rem;"><span class="tag">FP&A</span><span class="tag">Modeling</span></div>
                 </div>
                 <div class="project-card">
-                    <span class="badge">Profit</span>
-                    <h4 data-key="p2-title">Revenue Management</h4>
-                    <p data-key="p2-desc" style="color: var(--text-dim); margin-bottom: 1.5rem;">Dynamic pricing engines and demand elasticity analysis.</p>
-                    <div><span class="tag">Pricing</span><span class="tag">PriceFx</span></div>
+                    <div>
+                        <span class="impact-label" data-key="p2-label">Profit Maximization</span>
+                        <h4 data-key="p2-title">Revenue Management</h4>
+                        <p data-key="p2-desc" style="color: var(--text-dim);">Dynamic pricing engines and demand elasticity analysis for regional markets.</p>
+                        <span class="impact-metric" data-key="p2-metric">+15% Yield Potential</span>
+                    </div>
+                    <div style="margin-top: 1.5rem;"><span class="tag">Pricing</span><span class="tag">PriceFx</span></div>
                 </div>
                 <div class="project-card">
-                    <span class="badge">Efficiency</span>
-                    <h4 data-key="p4-title">Automation & RPA</h4>
-                    <p data-key="p4-desc" style="color: var(--text-dim); margin-bottom: 1.5rem;">Building custom digital workers to eliminate manual tasks.</p>
-                    <div><span class="tag">VBA</span><span class="tag">SQL</span></div>
+                    <div>
+                        <span class="impact-label" data-key="p4-label">Operational Excellence</span>
+                        <h4 data-key="p4-title">Automation & RPA</h4>
+                        <p data-key="p4-desc" style="color: var(--text-dim);">Building custom digital workers to eliminate manual tasks and reporting errors.</p>
+                        <span class="impact-metric" data-key="p4-metric">400+ Hours Saved/Yr</span>
+                    </div>
+                    <div style="margin-top: 1.5rem;"><span class="tag">VBA</span><span class="tag">Python</span><span class="tag">SQL</span></div>
                 </div>
             </div>
-        </section>
 
-        <section id="experience">
-            <h2 class="section-title" data-key="title-exp">Professional Journey</h2>
-            <div class="timeline">
-                <div class="exp-card">
-                    <div class="exp-meta">
-                        <span class="badge">Current</span>
-                        <h4>FIFCO</h4>
-                        <p data-key="fifco-role">Revenue Management Analyst</p>
-                    </div>
-                    <div class="exp-content">
-                        <ul>
-                            <li data-key="fifco-l1">Optimized P&L via PriceFx for 6 portfolio categories.</li>
-                            <li data-key="fifco-l2">Engineered dynamic price ladders for premium brands.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="exp-card">
-                    <div class="exp-meta">
-                        <span class="badge">2024 - 2025</span>
-                        <h4>Grupo ANC</h4>
-                        <p data-key="anc-role">Regional Revenue Manager</p>
-                    </div>
-                    <div class="exp-content">
-                        <ul>
-                            <li data-key="anc-l1">Fleet strategy for 500+ assets in 4 LATAM markets.</li>
-                            <li data-key="anc-l2">Built VBA pricing macros and rate tracking tools.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="exp-card">
-                    <div class="exp-meta">
-                        <span class="badge">2022 - 2024</span>
-                        <h4>Genpact</h4>
-                        <p data-key="gen-role">Senior Tax Analyst</p>
-                    </div>
-                    <div class="exp-content">
-                        <ul>
-                            <li data-key="gen-l1">Redesigned workflows with 60% automation reduction.</li>
-                            <li data-key="gen-l2">Lean Digital Ambassador (Green Belt).</li>
-                        </ul>
-                    </div>
+            <div class="tools-section">
+                <p style="color: var(--text-dim); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Tech Stack</p>
+                <div class="tools-container">
+                    <span class="tag">Microsoft Excel (Expert)</span>
+                    <span class="tag">Power BI</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">PriceFx</span>
+                    <span class="tag">SAP</span>
+                    <span class="tag">Tableau</span>
                 </div>
             </div>
         </section>
@@ -250,6 +250,7 @@
 
     <footer>
         <p>&copy; 2026 César Madrigal Rodríguez | Heredia, Costa Rica</p>
+        <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.5;">Revenue Management & Financial Analytics Portfolio</p>
     </footer>
 
     <script>
@@ -259,56 +260,59 @@
                 "hero-h1": "Engineering Profitability Through <span>Data Systems.</span>",
                 "hero-p": "Finance & Revenue Management professional with 9+ years across BPO, FMCG, and regional car rental. I bridge complex operations with automated financial intelligence.",
                 "btn-contact": "Email Me",
+                "btn-cv": "Download CV",
                 "title-expertise": "Core Expertises",
-                "p1-title": "Corporate Finance", "p1-desc": "Advanced P&L management and capital structure modeling.",
-                "p2-title": "Revenue Management", "p2-desc": "Dynamic pricing engines and demand elasticity analysis.",
-                "p4-title": "Automation & RPA", "p4-desc": "Building custom digital workers to eliminate manual tasks.",
-                "title-exp": "Professional Journey",
-                "fifco-role": "Revenue Management Analyst", "fifco-l1": "Optimized P&L via PriceFx.", "fifco-l2": "Dynamic price ladders.",
-                "anc-role": "Regional Revenue Manager", "anc-l1": "Fleet strategy for 4 LATAM markets.", "anc-l2": "VBA pricing macros.",
-                "gen-role": "Senior Tax Analyst", "gen-l1": "60% automation reduction.", "gen-l2": "Lean Digital Ambassador.",
+                "p1-label": "Strategic Finance", "p1-title": "Corporate Finance", "p1-desc": "Advanced P&L management and capital structure modeling to drive long-term sustainability.", "p1-metric": "ROI Focused",
+                "p2-label": "Profit Maximization", "p2-title": "Revenue Management", "p2-desc": "Dynamic pricing engines and demand elasticity analysis for regional markets.", "p2-metric": "+15% Yield Potential",
+                "p4-label": "Operational Excellence", "p4-title": "Automation & RPA", "p4-desc": "Building custom digital workers to eliminate manual tasks and reporting errors.", "p4-metric": "400+ Hours Saved/Yr",
                 "cta-h2": "Let's build something impactful.", "cta-p": "Available for strategic consulting and project-based work.", "cta-btn": "Email Me"
             },
             es: {
                 "role-title": "Revenue Management & Analítica Financiera",
                 "hero-h1": "Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span>",
-                "hero-p": "Profesional en Revenue Management y Finanzas con 9+ años en BPO, FMCG y renta de autos. Conecto operaciones complejas con inteligencia financiera automatizada.",
+                "hero-p": "Profesional en Finanzas y Revenue con 9+ años en BPO, consumo masivo y renta de autos. Conecto operaciones complejas con inteligencia financiera automatizada.",
                 "btn-contact": "Escríbeme",
+                "btn-cv": "Descargar CV",
                 "title-expertise": "Especialidades",
-                "p1-title": "Finanzas Corporativas", "p1-desc": "Gestión avanzada de P&L y modelado de estructura de capital.",
-                "p2-title": "Revenue Management", "p2-desc": "Motores de precios dinámicos y análisis de elasticidad de demanda.",
-                "p4-title": "Automatización & RPA", "p4-desc": "Creación de trabajadores digitales para eliminar tareas manuales.",
-                "title-exp": "Trayectoria Profesional",
-                "fifco-role": "Analista de Revenue Management", "fifco-l1": "Optimización de P&L vía PriceFx.", "fifco-l2": "Ladders de precios dinámicos.",
-                "anc-role": "Regional Revenue Manager", "anc-l1": "Estrategia de flota en 4 mercados LATAM.", "anc-l2": "Macros de pricing en VBA.",
-                "gen-role": "Analista Senior de Impuestos", "gen-l1": "60% reducción de esfuerzo manual.", "gen-l2": "Embajador Lean Digital.",
-                "cta-h2": "Construyamos algo con impacto.", "cta-p": "Disponible para consultoría estratégica y proyectos.", "cta-btn": "Escríbeme"
+                "p1-label": "Finanzas Estratégicas", "p1-title": "Finanzas Corporativas", "p1-desc": "Gestión avanzada de P&L y modelado de capital para rentabilidad a largo plazo.", "p1-metric": "Enfoque en ROI",
+                "p2-label": "Maximización de Beneficios", "p2-title": "Revenue Management", "p2-desc": "Motores de precios dinámicos y análisis de elasticidad de demanda regional.", "p2-metric": "+15% Potencial de Ingreso",
+                "p4-label": "Excelencia Operativa", "p4-title": "Automatización & RPA", "p4-desc": "Creación de trabajadores digitales para eliminar tareas manuales y errores.", "p4-metric": "400+ Horas Ahorradas/Año",
+                "cta-h2": "Construyamos algo con impacto.", "cta-p": "Disponible para consultoría estratégica y proyectos por resultados.", "cta-btn": "Escríbeme"
             },
             pt: {
                 "role-title": "Revenue Management & Análise Financeira",
                 "hero-h1": "Engenharia de Rentabilidade através de <span>Sistemas de Dados.</span>",
-                "hero-p": "Profissional de Revenue e Finanças com 9+ anos em BPO e FMCG. Conectando operações complexas com inteligência automatizada.",
+                "hero-p": "Profissional de Finanças e Revenue com 9+ anos em BPO e FMCG. Conectando operações complexas com inteligência financeira automatizada.",
                 "btn-contact": "Enviar Email",
+                "btn-cv": "Baixar CV",
                 "title-expertise": "Especialidades",
-                "p1-title": "Finanças Corporativas", "p1-desc": "Gestão avançada de P&L e modelagem financeira.",
-                "p2-title": "Revenue Management", "p2-desc": "Motores de preços e análise de elasticidade.",
-                "p4-title": "Automação & RPA", "p4-desc": "Desenvolvimento de robôs para eliminar tarefas manuais.",
-                "title-exp": "Jornada Profissional",
-                "fifco-role": "Analista de Revenue Management", "fifco-l1": "Otimização de P&L via PriceFx.", "fifco-l2": "Tabelas de preços dinâmicos.",
-                "anc-role": "Regional Revenue Manager", "anc-l1": "Estratégia de frota LATAM.", "anc-l2": "Macros VBA de pricing.",
-                "gen-role": "Analista Sênior de Impostos", "gen-l1": "60% redução manual com automação.", "gen-l2": "Lean Digital Ambassador.",
+                "p1-label": "Finanças Estratégicas", "p1-title": "Finanças Corporativas", "p1-desc": "Gestão avançada de P&L e modelagem financeira para sustentabilidade.", "p1-metric": "Foco em ROI",
+                "p2-label": "Maximização de Lucros", "p2-title": "Revenue Management", "p2-desc": "Motores de preços e análise de elasticidade de demanda em mercados regionais.", "p2-metric": "+15% Potencial de Receita",
+                "p4-label": "Excelência Operacional", "p4-title": "Automação & RPA", "p4-desc": "Desenvolvimento de robôs para eliminar tarefas manuais e erros de reporte.", "p4-metric": "400+ Horas Poupadas/Ano",
                 "cta-h2": "Vamos gerar impacto juntos.", "cta-p": "Disponível para consultoria estratégica e projetos.", "cta-btn": "Enviar Email"
             }
         };
 
-        function setLang(lang) {
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if(i18n[lang][key]) el.innerHTML = i18n[lang][key];
+        function changeLang(lang, btn) {
+            // Actualizar botones UI
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Efecto de transición en los textos
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                el.classList.add('fade-out');
             });
+
+            setTimeout(() => {
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-key');
+                    if(i18n[lang][key]) {
+                        el.innerHTML = i18n[lang][key];
+                    }
+                    el.classList.remove('fade-out');
+                });
+            }, 300);
         }
     </script>
 </body>
