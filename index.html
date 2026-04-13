@@ -3,104 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CÉSAR MADRIGAL R. | Executive Portfolio</title>
+    <title>CÉSAR MADRIGAL R. | Portafolio Ejecutivo</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Paleta extraída de tus referencias */
             --bg: #05070a;
             --surface: #0b1f3a; 
             --accent: #38bdf8;
             --text: #f8fafc;
             --text-dim: #a7b1be;
             --border: rgba(255,255,255,0.08);
-            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
-        /* HEADER & LOGO IMPACTANTE */
-        header { padding: 4rem 0 2rem 0; }
-        nav { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+        /* HEADER & LOGO MASIVO */
+        header { padding: 5rem 0 3rem 0; }
+        nav { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
 
         .logo { 
             font-weight: 800; 
-            /* Nombre grande y en una sola línea */
-            font-size: clamp(2.5rem, 6vw, 4.5rem); 
-            letter-spacing: -2px; 
+            font-size: clamp(2.2rem, 7vw, 5rem); /* Nombre masivo */
+            letter-spacing: -3px; 
             text-transform: uppercase;
-            white-space: nowrap; 
-            background: linear-gradient(90deg, #fff, #fff);
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-            transition: var(--transition);
+            white-space: nowrap; /* Siempre en una sola línea */
+            color: #fff;
             text-align: center;
         }
-
-        /* EFECTO DE COLORES EJECUTIVOS (Imagen d93fc7) */
-        .logo.processing {
-            background: linear-gradient(90deg, #38bdf8, #a7b1be, #6366f1, #38bdf8);
-            background-size: 200% auto;
-            animation: shine 1.2s linear infinite;
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-        }
-
-        @keyframes shine { to { background-position: 200% center; } }
 
         .lang-switcher { 
             display: flex; gap: 5px; background: var(--surface); padding: 5px; 
             border-radius: 12px; border: 1px solid var(--border);
         }
         .lang-btn { 
-            background: transparent; border: none; cursor: pointer; font-size: 0.8rem; 
+            background: transparent; border: none; cursor: pointer; font-size: 0.75rem; 
             font-weight: 800; color: var(--text-dim); padding: 8px 16px; border-radius: 8px; 
             transition: var(--transition);
         }
         .lang-btn.active { background: var(--accent); color: var(--bg); }
 
-        /* HERO */
-        .hero { padding: 4rem 0; text-align: center; }
-        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+        /* HERO SECTION */
+        .hero { padding: 4rem 0 6rem 0; text-align: center; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; margin-bottom: 2rem; letter-spacing: -2px; }
         .hero h1 span { color: var(--accent); }
-        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 900px; margin: 0 auto 3rem auto; }
+        .hero p { font-size: 1.15rem; color: var(--text-dim); max-width: 850px; margin: 0 auto 3.5rem auto; font-weight: 400; }
 
-        .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-        .btn { padding: 0.9rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: var(--transition); display: inline-flex; align-items: center; }
+        .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 1rem 2.2rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: var(--transition); display: inline-flex; align-items: center; }
         .btn-mail { background: var(--accent); color: var(--bg); }
         .btn-wa { background: #25d366; color: white; }
         .btn-li { background: #0077b5; color: white; }
         .btn-cv { border: 1px solid var(--border); color: white; }
-        .btn:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.4); filter: brightness(1.1); }
 
-        /* EXPERIENCIA */
+        /* SECCIÓN DE EXPERIENCIA (Identica a image_d95631.png) */
         section { padding: 6rem 0; border-top: 1px solid var(--border); }
-        .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 4px; color: var(--accent); margin-bottom: 4rem; font-weight: 800; text-align: center; }
+        .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); margin-bottom: 5rem; font-weight: 800; text-align: left; }
 
-        .exp-item { margin-bottom: 5rem; display: grid; grid-template-columns: 250px 1fr; gap: 3rem; }
-        .exp-meta { color: var(--text-dim); font-size: 0.9rem; font-weight: 700; }
-        .exp-content h3 { font-size: 1.8rem; margin-bottom: 0.4rem; }
-        .exp-role { color: var(--accent); font-weight: 700; display: block; margin-bottom: 1.5rem; font-size: 1.1rem; text-transform: uppercase; }
+        .exp-item { margin-bottom: 4rem; display: grid; grid-template-columns: 240px 1fr; gap: 2rem; }
+        .exp-meta { color: var(--text-dim); font-size: 0.9rem; font-weight: 600; padding-top: 0.5rem; }
+        .exp-content h3 { font-size: 2rem; font-weight: 800; margin-bottom: 0.2rem; letter-spacing: -0.5px; }
+        .exp-role { color: var(--accent); font-weight: 700; display: block; margin-bottom: 1.5rem; font-size: 1.1rem; }
         .exp-list { list-style: none; }
-        .exp-list li { position: relative; padding-left: 2rem; margin-bottom: 1rem; color: var(--text-dim); font-size: 1rem; text-align: justify; }
+        .exp-list li { position: relative; padding-left: 2rem; margin-bottom: 0.8rem; color: var(--text-dim); font-size: 1.05rem; }
         .exp-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
 
-        /* SKILLS GRID */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-        .skill-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem; border-radius: 15px; text-align: center; transition: var(--transition); }
-        .skill-card:hover { border-color: var(--accent); background: rgba(56, 189, 248, 0.05); }
-        .skill-card h4 { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent); }
-        .skill-card p { font-size: 0.85rem; font-weight: 600; color: var(--text); }
-
-        main.loading { opacity: 0.4; filter: blur(3px); transition: 0.5s; }
-
-        @media (max-width: 900px) {
-            .exp-item { grid-template-columns: 1fr; gap: 1rem; }
-            .logo { font-size: 2.5rem; }
+        @media (max-width: 850px) {
+            .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+            .logo { font-size: 2rem; letter-spacing: -1px; }
         }
     </style>
 </head>
@@ -108,7 +83,7 @@
 
     <header class="container">
         <nav>
-            <div class="logo" id="name-logo">CÉSAR MADRIGAL R.</div>
+            <div class="logo">CÉSAR MADRIGAL R.</div>
             <div class="lang-switcher">
                 <button class="lang-btn" onclick="setLang('en', this)">EN</button>
                 <button class="lang-btn active" onclick="setLang('es', this)">ES</button>
@@ -120,27 +95,26 @@
     <main class="container" id="main-content">
         <section class="hero" style="border:none">
             <h1 data-key="h-title">Engineering Profitability Through <span>Data Systems.</span></h1>
-            <p data-key="h-desc">Profesional Senior en Revenue Management y Finanzas Corporativas con más de 9 años de experiencia. Especialista en optimizar la rentabilidad mediante el diseño de sistemas de datos automatizados e inteligencia artificial aplicada.</p>
+            <p data-key="h-desc">Profesional Senior con más de 9 años de experiencia transformando datos complejos en estrategias de rentabilidad mediante automatización avanzada e IA generativa.</p>
             
             <div class="btn-group">
                 <a href="mailto:cesarmadrigalrodriguez24@gmail.com" class="btn btn-mail">Email</a>
-                <a href="https://wa.me/50684349442" target="_blank" class="btn btn-wa">WhatsApp</a>
-                <a href="https://www.linkedin.com/in/c%C3%A9sar-madrigal-rodr%C3%ADguez-3a23351b2" target="_blank" class="btn btn-li">LinkedIn</a>
-                <a href="CV_Cesar_Madrigal_ES.pdf" id="cv-link" download class="btn btn-cv" data-key="b-cv">Descargar CV</a>
+                <a href="https://wa.me/50684349442" class="btn btn-wa">WhatsApp</a>
+                <a href="https://www.linkedin.com/in/c%C3%A9sar-madrigal-rodr%C3%ADguez-3a23351b2" class="btn btn-li">LinkedIn</a>
+                <a href="#" class="btn btn-cv" data-key="b-cv">Descargar CV</a>
             </div>
         </section>
 
         <section id="experience">
-            <h2 class="section-title" data-key="s-exp">Historial Profesional Completo</h2>
+            <h2 class="section-title" data-key="s-exp">Historial Profesional</h2>
             
             <div class="exp-item">
                 <div class="exp-meta">Nov 2025 – Feb 2026</div>
                 <div class="exp-content">
                     <h3>FIFCO</h3>
-                    <span class="exp-role" data-key="r1-t">Analista de Revenue Management</span>
+                    <span class="exp-role" data-key="r1-t">Revenue Management Analyst</span>
                     <ul class="exp-list">
-                        <li data-key="r1-p1">Gestión avanzada de flujos comerciales mediante PriceFx para 6 categorías estratégicas.</li>
-                        <li data-key="r1-p2">Optimización de P&L y arquitectura de ladders de precios orientados a metas de rentabilidad corporativa.</li>
+                        <li data-key="r1-p1">Control comercial mediante PriceFx para 6 categorías estratégicas.</li>
                     </ul>
                 </div>
             </div>
@@ -151,68 +125,64 @@
                     <h3>Grupo ANC</h3>
                     <span class="exp-role" data-key="r2-t">Regional Revenue Manager</span>
                     <ul class="exp-list">
-                        <li data-key="r2-p1">Liderazgo estratégico para una flota regional de más de 500 vehículos en CR, GT, PE y NI.</li>
-                        <li data-key="r2-p2">Diseño e implementación de modelos de pricing dinámico integrando forecasting predictivo y monitoreo competitivo.</li>
+                        <li data-key="r2-p1">Dirección de estrategia de Revenue para flota regional de 500+ vehículos.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="exp-item">
-                <div class="exp-meta">2023 – Mar 2024</div>
+                <div class="exp-meta">Feb 2022 – Mar 2024</div>
                 <div class="exp-content">
                     <h3>Genpact</h3>
-                    <span class="exp-role" data-key="r3-t-dev">Process Developer / Automation Specialist</span>
+                    <span class="exp-role" data-key="r3-t1">Senior Tax Analyst</span>
                     <ul class="exp-list">
-                        <li data-key="r3-p1">Desarrollo de ecosistemas de automatización con Power Automate, eliminando el 60% de tareas manuales repetitivas.</li>
-                        <li data-key="r3-p2">Arquitectura de macros VBA complejas que redujeron los tiempos de procesamiento de datos en un 35%.</li>
+                        <li data-key="r3-p1">Gestión avanzada de cumplimiento fiscal y optimización operativa.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="exp-item">
-                <div class="exp-meta">Feb 2022 – 2023</div>
+                <div class="exp-meta">Nov 2019 – Feb 2022</div>
                 <div class="exp-content">
                     <h3>Genpact</h3>
-                    <span class="exp-role" data-key="r3-t-tax">Senior Tax Analyst</span>
+                    <span class="exp-role" data-key="r3-t2">Process Developer (Accounts Receivables AR)</span>
                     <ul class="exp-list">
-                        <li data-key="r3-p3">Gestión de cumplimiento fiscal y análisis de datos financieros complejos para operaciones multinacionales.</li>
-                        <li data-key="r3-p4">Aplicación de metodologías Lean Six Sigma Green Belt para la optimización de procesos internos.</li>
+                        <li data-key="r3-p2">Diseño y ejecución de arquitecturas de automatización de procesos.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="exp-item">
-                <div class="exp-meta">2018 – 2021</div>
+                <div class="exp-meta">Dic 2018 – Oct 2019</div>
                 <div class="exp-content">
-                    <h3>Walmart / EcoTerra / Grupo STT</h3>
-                    <span class="exp-role" data-key="r4-t">Facturación y Cobranzas (Mercados Regionales)</span>
+                    <h3>Walmart</h3>
+                    <span class="exp-role" data-key="r4-t">Process Developer (Accounts Receivables AR)</span>
                     <ul class="exp-list">
-                        <li data-key="r4-p1">Control integral de cartera y cobranza regional, logrando el reconocimiento de Top Collector en Walmart.</li>
+                        <li data-key="r4-p1">Reconocimiento como Top Collector por eficiencia en recuperación de cartera.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="exp-item">
-                <div class="exp-meta">2016 – 2017</div>
+                <div class="exp-meta">Mar 2018 – Nov 2018</div>
+                <div class="exp-content">
+                    <h3>Grupo STT</h3>
+                    <span class="exp-role" data-key="r5-t">Process Developer (Accounts Receivables AR)</span>
+                    <ul class="exp-list">
+                        <li data-key="r5-p1">Estandarización de procesos de facturación y cobranza regional.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-meta">Dic 2016 – Nov 2017</div>
                 <div class="exp-content">
                     <h3>Mundo REP</h3>
-                    <span class="exp-role" data-key="r5-t">Analista Financiero y Administrativo</span>
+                    <span class="exp-role" data-key="r6-t">Financial Analyst Jr</span>
                     <ul class="exp-list">
-                        <li data-key="r5-p1">Ejecución de cierres contables y gestión de conciliaciones bancarias y de inventario.</li>
+                        <li data-key="r6-p1">Control financiero, conciliaciones y apoyo en cierres contables.</li>
                     </ul>
                 </div>
-            </div>
-        </section>
-
-        <section id="tech">
-            <h2 class="section-title" data-key="s-tech">Especialidades Técnicas</h2>
-            <div class="skills-grid">
-                <div class="skill-card"><h4>Data & Logic</h4><p>Python (Pandas, NumPy), SQL, BigQuery</p></div>
-                <div class="skill-card"><h4>Business Intel</h4><p>Power BI, DAX, Excel Expert, VBA</p></div>
-                <div class="skill-card"><h4>Revenue Ops</h4><p>PriceFx, Dynamic Pricing, Forecasting</p></div>
-                <div class="skill-card"><h4>Methodology</h4><p>Lean Six Sigma Green Belt, Continuous Improvement</p></div>
-                <div class="skill-card"><h4>Automation</h4><p>Power Automate, Generative AI Systems</p></div>
-                <div class="skill-card"><h4>Finance</h4><p>P&L Optimization, Tax Strategy, Financial Modeling</p></div>
             </div>
         </section>
     </main>
@@ -221,49 +191,29 @@
         const i18n = {
             en: {
                 "h-title": "Engineering Profitability Through <span>Data Systems.</span>",
-                "h-desc": "Senior Revenue Management & Finance professional with 9+ years of experience. Expert in optimizing profitability through automated data systems and applied AI.",
-                "b-cv": "Download CV", "s-exp": "Full Career History", "s-tech": "Technical Specialties",
+                "h-desc": "Senior Professional with 9+ years of experience transforming complex data into profitability strategies through advanced automation and Generative AI.",
+                "b-cv": "Download CV", "s-exp": "Career History",
                 "r1-t": "Revenue Management Analyst", "r2-t": "Regional Revenue Manager",
-                "r3-t-dev": "Process Developer / Automation Specialist", "r3-t-tax": "Senior Tax Analyst",
-                "r4-t": "Billing & Collections (Regional)", "r5-t": "Financial & Admin Analyst"
-                /* ... otros textos se actualizarían aquí ... */
+                "r3-t1": "Senior Tax Analyst", "r3-t2": "Process Developer (AR)",
+                "r4-t": "Process Developer (AR)", "r5-t": "Process Developer (AR)", "r6-t": "Financial Analyst Jr"
             },
             es: {
                 "h-title": "Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span>",
-                "h-desc": "Profesional Senior en Revenue Management y Finanzas Corporativas con más de 9 años de experiencia. Especialista en optimizar la rentabilidad mediante automatización e IA.",
-                "b-cv": "Descargar CV", "s-exp": "Historial Profesional Completo", "s-tech": "Especialidades Técnicas",
+                "h-desc": "Profesional Senior con más de 9 años de experiencia transformando datos complejos en estrategias de rentabilidad mediante automatización avanzada e IA generativa.",
+                "b-cv": "Descargar CV", "s-exp": "Historial Profesional",
                 "r1-t": "Analista de Revenue Management", "r2-t": "Regional Revenue Manager",
-                "r3-t-dev": "Process Developer / Especialista en Automatización", "r3-t-tax": "Analista Senior de Impuestos",
-                "r4-t": "Facturación y Cobranzas (Regional)", "r5-t": "Analista Financiero y Administrativo"
-            },
-            pt: {
-                "h-title": "Engenharia de Rentabilidade através de <span>Sistemas de Dados.</span>",
-                "h-desc": "Especialista em Revenue e Finanças com 9+ anos de experiência. Transformando dados em lucro através da automação avançada.",
-                "b-cv": "Baixar CV", "s-exp": "Histórico Profissional", "s-tech": "Habilidades Técnicas",
-                "r1-t": "Analista de Revenue", "r2-t": "Regional Revenue Manager", "r3-t-dev": "Process Developer", "r3-t-tax": "Analista Sênior"
+                "r3-t1": "Analista Senior de Impuestos", "r3-t2": "Desarrollador de Procesos (AR)",
+                "r4-t": "Desarrollador de Procesos (AR)", "r5-t": "Desarrollador de Procesos (AR)", "r6-t": "Analista Financiero Jr"
             }
         };
 
         function setLang(lang, btn) {
-            const logo = document.getElementById('name-logo');
-            const main = document.getElementById('main-content');
-            logo.classList.add('processing');
-            main.classList.add('loading');
-
-            setTimeout(() => {
-                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                document.querySelectorAll('[data-key]').forEach(el => {
-                    const key = el.getAttribute('data-key');
-                    if(i18n[lang][key]) el.innerHTML = i18n[lang][key];
-                });
-
-                document.getElementById('cv-link').href = (lang === 'en') ? "CV_Cesar_Madrigal_EN.pdf" : "CV_Cesar_Madrigal_ES.pdf";
-
-                logo.classList.remove('processing');
-                main.classList.remove('loading');
-            }, 600);
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if(i18n[lang][key]) el.innerHTML = i18n[lang][key];
+            });
         }
     </script>
 </body>
