@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>César Madrigal Rodríguez | Revenue & Data Strategist</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --bg: #05070a;
+            --surface: #0f1218;
+            --accent: #38bdf8;
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+            --border: rgba(255,255,255,0.08);
+            --glass: rgba(15, 18, 24, 0.8);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Background Animation --- */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -20%, #1e293b 0%, var(--bg) 60%);
+            z-index: -1;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            background: var(--glass);
+        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -1px; }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(0,0,0,0.3);
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            border: none;
+            background: transparent;
+            color: var(--text-dim);
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--accent), #f0f9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        /* --- Stats Grid --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .stat-card h3 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+        .stat-card p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); }
+
+        /* --- Sections General --- */
+        section { padding: 6rem 0; }
+        .section-title { font-size: 2.5rem; margin-bottom: 3rem; position: relative; font-weight: 800; }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px; left: 0;
+            width: 60px; height: 4px;
+            background: var(--accent);
+        }
+
+        /* --- Project/Solutions Cards --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 40px rgba(56, 189, 248, 0.1);
+        }
+
+        .project-card .impact-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .project-card h4 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .project-card p { color: var(--text-dim); font-size: 1rem; margin-bottom: 2rem; }
+
+        /* --- Experience Cards --- */
+        .timeline { display: flex; flex-direction: column; gap: 2rem; }
+        .exp-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            transition: var(--transition);
+        }
+        .exp-card:hover { border-color: rgba(56, 189, 248, 0.3); }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .exp-content ul { list-style: none; }
+        .exp-content li { 
+            position: relative; 
+            padding-left: 1.5rem; 
+            margin-bottom: 0.8rem; 
+            color: var(--text-dim);
+        }
+        .exp-content li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* --- Skills --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .skill-box {
+            background: rgba(255,255,255,0.03);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+
+        /* --- Buttons & Contact --- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 1.25rem 2.5rem;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: var(--transition);
+        }
+        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(56, 189, 248, 0.4); }
+
+        .contact-cta {
+            text-align: center;
+            background: linear-gradient(rgba(56, 189, 248, 0.05), transparent);
+            padding: 6rem 2rem;
+            border-radius: 40px;
+            border: 1px solid var(--border);
+        }
+
+        /* --- Animations --- */
+        [data-aos] { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        [data-aos].visible { opacity: 1; transform: translateY(0); }
+
+        footer { padding: 4rem 0; text-align: center; color: var(--text-dim); border-top: 1px solid var(--border); }
+
+        @media (max-width: 850px) {
+            .exp-card { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <header>
+        <div class="container nav">
+            <div class="logo">CÉSAR MADRIGAL R.</div>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('es')">ES</button>
+                <button class="lang-btn" onclick="setLang('pt')">PT</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="badge" data-key="role-title">Strategic Revenue & Data Solutions</p>
+            <h1 data-key="hero-h1">Engineering Profitability Through <span>Data Systems.</span></h1>
+            <p data-key="hero-p">I build scalable revenue engines and automated financial systems. Expertise in bridging the gap between complex data and C-Suite decision making.</p>
+            <div>
+                <a href="#contact" class="btn-primary">
+                    <span data-key="btn-contact">Scope a Project</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <div class="stats-grid">
+            <div class="stat-card" data-aos>
+                <h3>60%</h3>
+                <p data-key="stat-1">Operational Efficiency</p>
+            </div>
+            <div class="stat-card" data-aos>
+                <h3>99.8%</h3>
+                <p data-key="stat-2">Billing Precision</p>
+            </div>
+            <div class="stat-card" data-aos>
+                <h3>500+</h3>
+                <p data-key="stat-3">Fleet Optimization</p>
+            </div>
+            <div class="stat-card" data-aos>
+                <h3>30+</h3>
+                <p data-key="stat-4">Advanced Certifications</p>
+            </div>
+        </div>
+
+        <section id="solutions">
+            <h2 class="section-title" data-key="title-solutions">Featured Solutions</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-aos>
+                    <div>
+                        <span class="impact-label" data-key="p1-label">Revenue Optimization</span>
+                        <h4 data-key="p1-title">Pricing Intelligence Engine</h4>
+                        <p data-key="p1-desc">Real-time decision system built with React & BigQuery. Replaced static reporting with dynamic forecasting for multi-country operations.</p>
+                    </div>
+                    <div class="tag-cloud">
+                        <span class="tag">React</span>
+                        <span class="tag">BigQuery</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos>
+                    <div>
+                        <span class="impact-label" data-key="p2-label">Automation</span>
+                        <h4 data-key="p2-title">BPO Workflow Architect</h4>
+                        <p data-key="p2-desc">End-to-end automation suite using Power Automate & VBA. Reduced manual operational overhead by 60% with peak accuracy.</p>
+                    </div>
+                    <div class="tag-cloud">
+                        <span class="tag">Power Automate</span>
+                        <span class="tag">VBA</span>
+                        <span class="tag">Lean Six Sigma</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title" data-key="title-exp">Professional Journey</h2>
+            <div class="timeline">
+                <div class="exp-card" data-aos>
+                    <div class="exp-meta">
+                        <span class="badge">2025 - 2026</span>
+                        <h4>FIFCO</h4>
+                        <p data-key="fifco-role">Revenue Management Analyst</p>
+                    </div>
+                    <div class="exp-content">
+                        <ul>
+                            <li data-key="fifco-l1">Optimized P&L and commercial flows for premium portfolio categories via PriceFx.</li>
+                            <li data-key="fifco-l2">Engineered dynamic price ladders ensuring maximum margin contribution.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-card" data-aos>
+                    <div class="exp-meta">
+                        <span class="badge">2024 - 2025</span>
+                        <h4>Grupo ANC</h4>
+                        <p data-key="anc-role">Regional Revenue Manager</p>
+                    </div>
+                    <div class="exp-content">
+                        <ul>
+                            <li data-key="anc-l1">Architected fleet strategy for 500+ assets across 4 LATAM markets.</li>
+                            <li data-key="anc-l2">Automated competitor rate capturing for real-time market positioning.</li>
+                            <li data-key="anc-l3">Developed demand-driven seasonal pricing models.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-card" data-aos>
+                    <div class="exp-meta">
+                        <span class="badge">2022 - 2024</span>
+                        <h4>Genpact</h4>
+                        <p data-key="gen-role">Senior Tax & Automation Analyst</p>
+                    </div>
+                    <div class="exp-content">
+                        <ul>
+                            <li data-key="gen-l1">Redesigned financial workflows, achieving 60% reduction in manual effort.</li>
+                            <li data-key="gen-l2">Lean Digital Ambassador: Led continuous improvement across regional hubs.</li>
+                            <li data-key="gen-l3">Developed custom VBA/SQL solutions for high-stakes tax compliance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title" data-key="title-skills">Technical Arsenal</h2>
+            <div class="skills-container">
+                <div class="skill-box" data-aos>
+                    <h5 data-key="skill-cat-1">Data Architecture</h5>
+                    <div class="tag-cloud">
+                        <span class="tag">Power BI (Expert)</span>
+                        <span class="tag">SQL / BigQuery</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Tableau</span>
+                        <span class="tag">Gen AI Workflows</span>
+                    </div>
+                </div>
+                <div class="skill-box" data-aos>
+                    <h5 data-key="skill-cat-2">Automation & Dev</h5>
+                    <div class="tag-cloud">
+                        <span class="tag">VBA / Macros</span>
+                        <span class="tag">Power Automate</span>
+                        <span class="tag">React Dashboards</span>
+                        <span class="tag">API Integration</span>
+                    </div>
+                </div>
+                <div class="skill-box" data-aos>
+                    <h5 data-key="skill-cat-3">Strategy & Lean</h5>
+                    <div class="tag-cloud">
+                        <span class="tag">Lean Six Sigma Green Belt</span>
+                        <span class="tag">Revenue Management</span>
+                        <span class="tag">DMAIC</span>
+                        <span class="tag">IFRS / Tax Compliance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact-cta" data-aos>
+                <h2 data-key="cta-h2">Ready to scale your efficiency?</h2>
+                <p data-key="cta-p">I solve revenue bottlenecks with data. Available for strategic consulting and project-based work.</p>
+                <a href="mailto:cesarmadrigalrodriguez24@gmail.com" class="btn-primary">
+                    <span data-key="cta-btn">Start a Conversation</span>
+                    <i data-lucide="mail"></i>
+                </a>
+                <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <a href="https://linkedin.com/in/cesarmadrigalrodriguez" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">LinkedIn</a>
+                    <span style="color: var(--text-dim);">+506 8434-9442</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 César Madrigal Rodríguez | San José, Costa Rica</p>
+    </footer>
+
+    <script>
+        const i18n = {
+            en: {
+                "role-title": "Strategic Revenue & Data Solutions",
+                "hero-h1": "Engineering Profitability Through <span>Data Systems.</span>",
+                "hero-p": "I build scalable revenue engines and automated financial systems. Expertise in bridging the gap between complex data and C-Suite decision making.",
+                "btn-contact": "Scope a Project",
+                "stat-1": "Operational Efficiency",
+                "stat-2": "Billing Precision",
+                "stat-3": "Active Fleet Optimization",
+                "stat-4": "Advanced Certifications",
+                "title-solutions": "Featured Solutions",
+                "p1-label": "Revenue Optimization",
+                "p1-title": "Pricing Intelligence Engine",
+                "p1-desc": "Real-time decision system built with React & BigQuery. Replaced static reporting with dynamic forecasting.",
+                "p2-label": "Process Automation",
+                "p2-title": "BPO Workflow Architect",
+                "p2-desc": "End-to-end automation suite. Reduced manual operational overhead by 60% with peak accuracy.",
+                "title-exp": "Professional Journey",
+                "fifco-role": "Revenue Management Analyst",
+                "fifco-l1": "Optimized P&L and commercial flows for premium portfolio categories via PriceFx.",
+                "fifco-l2": "Engineered dynamic price ladders ensuring maximum margin contribution.",
+                "anc-role": "Regional Revenue Manager",
+                "anc-l1": "Architected fleet strategy for 500+ assets across 4 LATAM markets.",
+                "anc-l2": "Automated competitor rate capturing for real-time market positioning.",
+                "anc-l3": "Developed demand-driven seasonal pricing models.",
+                "gen-role": "Senior Tax & Automation Analyst",
+                "gen-l1": "Redesigned financial workflows, achieving 60% reduction in manual effort.",
+                "gen-l2": "Lean Digital Ambassador: Led continuous improvement across regional hubs.",
+                "gen-l3": "Developed custom VBA/SQL solutions for high-stakes tax compliance.",
+                "title-skills": "Technical Arsenal",
+                "skill-cat-1": "Data Architecture",
+                "skill-cat-2": "Automation & Dev",
+                "skill-cat-3": "Strategy & Lean",
+                "cta-h2": "Ready to scale your efficiency?",
+                "cta-p": "I solve revenue bottlenecks with data. Available for strategic consulting and project-based work.",
+                "cta-btn": "Start a Conversation"
+            },
+            es: {
+                "role-title": "Soluciones Estratégicas de Revenue y Datos",
+                "hero-h1": "Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span>",
+                "hero-p": "Diseño motores de ingresos escalables y sistemas financieros automatizados. Especialista en conectar datos complejos con la toma de decisiones ejecutiva.",
+                "btn-contact": "Cotizar Proyecto",
+                "stat-1": "Eficiencia Operativa",
+                "stat-2": "Precisión en Facturación",
+                "stat-3": "Flota Optimizada",
+                "stat-4": "Certificaciones Avanzadas",
+                "title-solutions": "Soluciones Destacadas",
+                "p1-label": "Optimización de Ingresos",
+                "p1-title": "Motor de Pricing Intelligence",
+                "p1-desc": "Sistema de decisiones en tiempo real desarrollado con React y BigQuery. Sustitución de reportes estáticos por pronósticos dinámicos.",
+                "p2-label": "Automatización",
+                "p2-title": "Arquitecto de Workflows BPO",
+                "p2-desc": "Suite de automatización integral. Reducción del 60% en carga operativa manual con máxima precisión.",
+                "title-exp": "Trayectoria Profesional",
+                "fifco-role": "Analista de Revenue Management",
+                "fifco-l1": "Optimización de P&L y flujos comerciales para categorías premium mediante PriceFx.",
+                "fifco-l2": "Diseño de ladders de precios dinámicos para maximizar el margen de contribución.",
+                "anc-role": "Regional Revenue Manager",
+                "anc-l1": "Lideré la estrategia de flota para más de 500 activos en 4 mercados de LATAM.",
+                "anc-l2": "Automatización de captura de tarifas de competencia para posicionamiento en tiempo real.",
+                "anc-l3": "Desarrollo de modelos de precios estacionales basados en demanda.",
+                "gen-role": "Analista Senior de Impuestos y Automatización",
+                "gen-l1": "Rediseño de flujos financieros, logrando una reducción del 60% en esfuerzo manual.",
+                "gen-l2": "Lean Digital Ambassador: Liderazgo en mejora continua para centros regionales.",
+                "gen-l3": "Desarrollo de soluciones VBA/SQL para cumplimiento fiscal de alto nivel.",
+                "title-skills": "Arsenal Técnico",
+                "skill-cat-1": "Arquitectura de Datos",
+                "skill-cat-2": "Automatización y Dev",
+                "skill-cat-3": "Estrategia y Lean",
+                "cta-h2": "¿Listo para escalar tu eficiencia?",
+                "cta-p": "Resuelvo cuellos de botella mediante datos. Disponible para consultoría estratégica y proyectos.",
+                "cta-btn": "Iniciar Conversación"
+            },
+            pt: {
+                "role-title": "Soluções Estratégicas de Receita e Dados",
+                "hero-h1": "Engenharia de Rentabilidade através de <span>Sistemas de Dados.</span>",
+                "hero-p": "Construo motores de receita escaláveis e sistemas financeiros automatizados. Especialista em traduzir dados complexos para decisões de nível C-Suite.",
+                "btn-contact": "Agendar Projeto",
+                "stat-1": "Eficiência Operacional",
+                "stat-2": "Precisão de Faturamento",
+                "stat-3": "Otimização de Frota Ativa",
+                "stat-4": "Certificações Avanzadas",
+                "title-solutions": "Soluções em Destaque",
+                "p1-label": "Otimização de Receita",
+                "p1-title": "Motor de Inteligência de Preços",
+                "p1-desc": "Sistema de decisão em tempo real com React e BigQuery. Substituição de relatórios estáticos por previsões dinâmicas.",
+                "p2-label": "Automação de Processos",
+                "p2-title": "Arquiteto de Fluxo de Trabalho BPO",
+                "p2-desc": "Conjunto de automação de ponta a ponta. Redução de 60% na sobrecarga manual com precisão total.",
+                "title-exp": "Experiência Profissional",
+                "fifco-role": "Analista de Revenue Management",
+                "fifco-l1": "Otimização de P&L e fluxos comerciais via PriceFx para portfólios premium.",
+                "fifco-l2": "Engenharia de tabelas de preços dinâmicas garantindo máxima margem.",
+                "anc-role": "Regional Revenue Manager",
+                "anc-l1": "Estrategista de frota para mais de 500 veículos em 4 mercados LATAM.",
+                "anc-l2": "Automação de monitoramento de concorrentes para posicionamento de mercado.",
+                "anc-l3": "Modelos de preços sazonais baseados em demanda preditiva.",
+                "gen-role": "Analista Sênior de Impostos e Automação",
+                "gen-l1": "Redesenho de fluxos financeiros com 60% de redução no esforço manual.",
+                "gen-l2": "Lean Digital Ambassador: Líder de melhoria contínua em hubs regionais.",
+                "gen-l3": "Soluções personalizadas em VBA/SQL para conformidade fiscal complexa.",
+                "title-skills": "Arsenal Técnico",
+                "skill-cat-1": "Arquitetura de Dados",
+                "skill-cat-2": "Automação e Dev",
+                "skill-cat-3": "Estrategia e Lean",
+                "cta-h2": "Pronto para otimizar sua receita?",
+                "cta-p": "Soluciono gargalos de receita com dados. Disponível para consultoria estratégica.",
+                "cta-btn": "Começar Conversa"
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText.toLowerCase() === lang) btn.classList.add('active');
+            });
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if(i18n[lang][key]) el.innerHTML = i18n[lang][key];
+            });
+        }
+
+        lucide.createIcons();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
