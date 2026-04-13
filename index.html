@@ -253,7 +253,7 @@
                 "r3-m2": "Nov 2019 – Fev 2022", "r3-t2": "Desenvolvedor de Processos (AR)", "r3-d2": "Automação de processos financeiros.",
                 "r4-m": "Dez 2018 – Out 2019", "r4-t": "Desenvolvedor de Processos (AR)", "r4-d": "Top Collector por eficiência regional.",
                 "r5-m": "Mar 2018 – Nov 2018", "r5-t": "Desenvolvedor de Processos (AR)", "r5-d": "Padronização de cobrança regional.",
-                "r6-m": "Dez 2016 – Nov 2017", "r6-t": "Analista Financeiro Jr", "r6-d": "Controle financeiro e fechamentos contábeis."
+                "r6-m": "Dez 2016 – Nov 2017", "r6-t": "Analista Financiero Jr", "r6-d": "Controle financeiro e fechamentos contábeis."
             }
         };
 
@@ -286,7 +286,8 @@
                 this.y = Math.random() * canvas.height;
                 this.vx = (Math.random() - 0.5) * 0.3;
                 this.vy = (Math.random() - 0.5) * 0.3;
-                this.radius = Math.random() * 1.5;
+                // RADIO INCREMENTADO AL 150%+ (antes 1.5, ahora ~4.0)
+                this.radius = 1.5 + (Math.random() * 2.5);
             }
             update() {
                 this.x += this.vx;
