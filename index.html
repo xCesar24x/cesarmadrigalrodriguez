@@ -18,31 +18,42 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            line-height: 1.6; 
+            overflow-x: hidden;
+        }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        /* FONDO DE PUNTOS DINÁMICOS */
+        #canvas-dots {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
 
-        /* HEADER & LOGO MASIVO */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
         header { padding: 5rem 0 3rem 0; }
         nav { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
 
+        /* LOGO CON ANIMACIÓN INFINITA */
         .logo { 
             font-weight: 800; 
             font-size: clamp(2.2rem, 7vw, 5rem); 
             letter-spacing: -3px; 
             text-transform: uppercase;
             white-space: nowrap; 
-            background: linear-gradient(90deg, #fff, #fff);
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-            transition: var(--transition);
             text-align: center;
-        }
-
-        .logo.processing {
-            background: linear-gradient(90deg, #38bdf8, #a7b1be, #6366f1, #38bdf8);
+            /* Gradiente activo siempre */
+            background: linear-gradient(90deg, #fff, #38bdf8, #6366f1, #fff);
             background-size: 200% auto;
-            animation: shine 1.2s linear infinite;
+            animation: shine 3s linear infinite; /* Animación constante */
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent;
         }
@@ -60,7 +71,6 @@
         }
         .lang-btn.active { background: var(--accent); color: var(--bg); }
 
-        /* HERO & BOTONES */
         .hero { padding: 4rem 0 6rem 0; text-align: center; }
         .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; margin-bottom: 2rem; }
         .hero h1 span { color: var(--accent); }
@@ -73,16 +83,14 @@
         .btn-li { background: #0077b5; color: white; }
         .btn-cv { border: 1px solid var(--border); color: white; }
         
-        /* SECCIÓN DE HABILIDADES */
         section { padding: 6rem 0; border-top: 1px solid var(--border); }
         .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 5px; color: var(--accent); margin-bottom: 3.5rem; font-weight: 800; }
 
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-        .skill-card { background: var(--surface); border: 1px solid var(--border); padding: 2rem; border-radius: 16px; transition: var(--transition); }
+        .skill-card { background: rgba(11, 31, 58, 0.6); backdrop-filter: blur(10px); border: 1px solid var(--border); padding: 2rem; border-radius: 16px; transition: var(--transition); }
         .skill-card:hover { border-color: var(--accent); transform: translateY(-5px); }
         .skill-card h4 { font-size: 0.75rem; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
 
-        /* EXPERIENCIA */
         .exp-item { margin-bottom: 4rem; display: grid; grid-template-columns: 240px 1fr; gap: 2rem; }
         .exp-meta { color: var(--text-dim); font-size: 0.9rem; font-weight: 600; }
         .exp-content h3 { font-size: 2rem; font-weight: 800; margin-bottom: 0.2rem; }
@@ -91,8 +99,7 @@
         .exp-list li { position: relative; padding-left: 2rem; margin-bottom: 0.8rem; color: var(--text-dim); font-size: 1.05rem; }
         .exp-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
 
-        /* EFECTO CARGA CONTENIDO */
-        main.loading { opacity: 0.3; filter: blur(4px); transition: 0.6s; }
+        main.loading { opacity: 0.3; filter: blur(10px); transition: 0.6s; }
 
         @media (max-width: 850px) {
             .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
@@ -101,6 +108,8 @@
     </style>
 </head>
 <body>
+
+    <canvas id="canvas-dots"></canvas>
 
     <header class="container">
         <nav>
@@ -137,7 +146,6 @@
 
         <section id="experience">
             <h2 class="section-title" data-key="s-exp">Historial Profesional</h2>
-            
             <div class="exp-item">
                 <div class="exp-meta" data-key="r1-m">Nov 2025 – Feb 2026</div>
                 <div class="exp-content">
@@ -146,7 +154,6 @@
                     <ul class="exp-list"><li data-key="r1-d">PriceFx y estrategias de rentabilidad.</li></ul>
                 </div>
             </div>
-
             <div class="exp-item">
                 <div class="exp-meta" data-key="r2-m">Mar 2024 – Nov 2025</div>
                 <div class="exp-content">
@@ -155,111 +162,43 @@
                     <ul class="exp-list"><li data-key="r2-d">Estrategia regional para flota LATAM.</li></ul>
                 </div>
             </div>
-
-            <div class="exp-item">
-                <div class="exp-meta" data-key="r3-m1">Feb 2022 – Mar 2024</div>
-                <div class="exp-content">
-                    <h3>Genpact</h3>
-                    <span class="exp-role" data-key="r3-t1">Analista Senior de Impuestos</span>
-                    <ul class="exp-list"><li data-key="r3-d1">Cumplimiento fiscal y eficiencia operativa.</li></ul>
-                </div>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-meta" data-key="r3-m2">Nov 2019 – Feb 2022</div>
-                <div class="exp-content">
-                    <h3>Genpact</h3>
-                    <span class="exp-role" data-key="r3-t2">Desarrollador de Procesos (AR)</span>
-                    <ul class="exp-list"><li data-key="r3-d2">Automatización de procesos financieros.</li></ul>
-                </div>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-meta" data-key="r4-m">Dic 2018 – Oct 2019</div>
-                <div class="exp-content">
-                    <h3>Walmart</h3>
-                    <span class="exp-role" data-key="r4-t">Desarrollador de Procesos (AR)</span>
-                    <ul class="exp-list"><li data-key="r4-d">Top Collector por eficiencia regional.</li></ul>
-                </div>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-meta" data-key="r5-m">Mar 2018 – Nov 2018</div>
-                <div class="exp-content">
-                    <h3>Grupo STT</h3>
-                    <span class="exp-role" data-key="r5-t">Desarrollador de Procesos (AR)</span>
-                    <ul class="exp-list"><li data-key="r5-d">Estandarización de cobranza regional.</li></ul>
-                </div>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-meta" data-key="r6-m">Dic 2016 – Nov 2017</div>
-                <div class="exp-content">
-                    <h3>Mundo REP</h3>
-                    <span class="exp-role" data-key="r6-t">Analista Financiero Jr</span>
-                    <ul class="exp-list"><li data-key="r6-d">Control financiero y cierres contables.</li></ul>
-                </div>
-            </div>
         </section>
     </main>
 
     <script>
+        // --- LÓGICA DE TRADUCCIÓN ---
         const i18n = {
             en: {
                 "h-title": "Engineering Profitability Through <span>Data Systems.</span>",
                 "h-desc": "Senior Professional with 9+ years experience transforming complex data into profit through advanced automation and Generative AI.",
                 "b-cv": "Download CV", "s-tech": "Technical Skills", "s-exp": "Career History",
-                "sk-1": "Power BI, DAX, Excel Expert, SQL, Python.",
-                "sk-2": "PriceFx, Dynamic Pricing, Forecasting, P&L.",
-                "sk-3": "Gen AI, Power Automate, Process Developer.",
-                "sk-4": "Lean Six Sigma Green Belt, Tax Expert.",
+                "sk-1": "Power BI, DAX, Excel Expert, SQL, Python.", "sk-2": "PriceFx, Dynamic Pricing, Forecasting, P&L.",
+                "sk-3": "Gen AI, Power Automate, Process Developer.", "sk-4": "Lean Six Sigma Green Belt, Tax Expert.",
                 "r1-m": "Nov 2025 – Feb 2026", "r1-t": "Revenue Management Analyst", "r1-d": "PriceFx and profitability strategies.",
-                "r2-m": "Mar 2024 – Nov 2025", "r2-t": "Regional Revenue Manager", "r2-d": "Regional strategy for LATAM fleet.",
-                "r3-m1": "Feb 2022 – Mar 2024", "r3-t1": "Senior Tax Analyst", "r3-d1": "Tax compliance and operational efficiency.",
-                "r3-m2": "Nov 2019 – Feb 2022", "r3-t2": "Process Developer (AR)", "r3-d2": "Automation of financial processes.",
-                "r4-m": "Dec 2018 – Oct 2019", "r4-t": "Process Developer (AR)", "r4-d": "Top Collector for regional efficiency.",
-                "r5-m": "Mar 2018 – Nov 2018", "r5-t": "Process Developer (AR)", "r5-d": "Regional collection standardization.",
-                "r6-m": "Dec 2016 – Nov 2017", "r6-t": "Financial Analyst Jr", "r6-d": "Financial control and accounting closings."
+                "r2-m": "Mar 2024 – Nov 2025", "r2-t": "Regional Revenue Manager", "r2-d": "Regional strategy for LATAM fleet."
             },
             es: {
                 "h-title": "Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span>",
                 "h-desc": "Profesional Senior con más de 9 años de experiencia transformando datos complejos en estrategias de rentabilidad mediante automatización avanzada e IA generativa.",
                 "b-cv": "Descargar CV", "s-tech": "Habilidades Técnicas", "s-exp": "Historial Profesional",
-                "sk-1": "Power BI, DAX, Excel Expert, SQL, Python.",
-                "sk-2": "PriceFx, Dynamic Pricing, Forecasting, P&L.",
-                "sk-3": "Gen AI, Power Automate, Process Developer.",
-                "sk-4": "Lean Six Sigma Green Belt, Tax Expert.",
+                "sk-1": "Power BI, DAX, Excel Expert, SQL, Python.", "sk-2": "PriceFx, Dynamic Pricing, Forecasting, P&L.",
+                "sk-3": "Gen AI, Power Automate, Process Developer.", "sk-4": "Lean Six Sigma Green Belt, Tax Expert.",
                 "r1-m": "Nov 2025 – Feb 2026", "r1-t": "Analista de Revenue Management", "r1-d": "PriceFx y estrategias de rentabilidad.",
-                "r2-m": "Mar 2024 – Nov 2025", "r2-t": "Regional Revenue Manager", "r2-d": "Estrategia regional para flota LATAM.",
-                "r3-m1": "Feb 2022 – Mar 2024", "r3-t1": "Analista Senior de Impuestos", "r3-d1": "Cumplimiento fiscal y eficiencia operativa.",
-                "r3-m2": "Nov 2019 – Feb 2022", "r3-t2": "Desarrollador de Procesos (AR)", "r3-d2": "Automatización de procesos financieros.",
-                "r4-m": "Dic 2018 – Oct 2019", "r4-t": "Desarrollador de Procesos (AR)", "r4-d": "Top Collector por eficiencia regional.",
-                "r5-m": "Mar 2018 – Nov 2018", "r5-t": "Desarrollador de Procesos (AR)", "r5-d": "Estandarización de cobranza regional.",
-                "r6-m": "Dic 2016 – Nov 2017", "r6-t": "Analista Financiero Jr", "r6-d": "Control financiero y cierres contables."
+                "r2-m": "Mar 2024 – Nov 2025", "r2-t": "Regional Revenue Manager", "r2-d": "Estrategia regional para flota LATAM."
             },
             pt: {
                 "h-title": "Engenharia de Rentabilidade através de <span>Sistemas de Dados.</span>",
                 "h-desc": "Profissional Sênior com mais de 9 anos de experiência transformando dados complexos em estratégias de rentabilidade através de automação avançada e IA Generativa.",
                 "b-cv": "Baixar CV", "s-tech": "Habilidades Técnicas", "s-exp": "Histórico Profissional",
-                "sk-1": "Power BI, DAX, Excel Expert, SQL, Python.",
-                "sk-2": "PriceFx, Dynamic Pricing, Forecasting, P&L.",
-                "sk-3": "Gen AI, Power Automate, Process Developer.",
-                "sk-4": "Lean Six Sigma Green Belt, Tax Expert.",
+                "sk-1": "Power BI, DAX, Excel Expert, SQL, Python.", "sk-2": "PriceFx, Dynamic Pricing, Forecasting, P&L.",
+                "sk-3": "Gen AI, Power Automate, Process Developer.", "sk-4": "Lean Six Sigma Green Belt, Tax Expert.",
                 "r1-m": "Nov 2025 – Fev 2026", "r1-t": "Analista de Revenue Management", "r1-d": "PriceFx e estratégias de rentabilidade.",
-                "r2-m": "Mar 2024 – Nov 2025", "r2-t": "Regional Revenue Manager", "r2-d": "Estratégia regional para frota LATAM.",
-                "r3-m1": "Fev 2022 – Mar 2024", "r3-t1": "Analista Sênior de Impostos", "r3-d1": "Conformidade fiscal e eficiência operacional.",
-                "r3-m2": "Nov 2019 – Fev 2022", "r3-t2": "Desenvolvedor de Processos (AR)", "r3-d2": "Automação de processos financeiros.",
-                "r4-m": "Dez 2018 – Out 2019", "r4-t": "Desenvolvedor de Processos (AR)", "r4-d": "Top Collector por eficiência regional.",
-                "r5-m": "Mar 2018 – Nov 2018", "r5-t": "Desenvolvedor de Processos (AR)", "r5-d": "Padronização de cobrança regional.",
-                "r6-m": "Dez 2016 – Nov 2017", "r6-t": "Analista Financeiro Jr", "r6-d": "Controle financeiro e fechamentos contábeis."
+                "r2-m": "Mar 2024 – Nov 2025", "r2-t": "Regional Revenue Manager", "r2-d": "Estratégia regional para frota LATAM."
             }
         };
 
         function setLang(lang, btn) {
-            const logo = document.getElementById('name-logo');
             const main = document.getElementById('main-content');
-            
-            logo.classList.add('processing');
             main.classList.add('loading');
 
             setTimeout(() => {
@@ -270,11 +209,60 @@
                     const key = el.getAttribute('data-key');
                     if(i18n[lang] && i18n[lang][key]) el.innerHTML = i18n[lang][key];
                 });
-
-                logo.classList.remove('processing');
                 main.classList.remove('loading');
-            }, 700);
+            }, 600);
         }
+
+        // --- LÓGICA DE PUNTOS FLOTANTES (CANVAS) ---
+        const canvas = document.getElementById('canvas-dots');
+        const ctx = canvas.getContext('2d');
+        let points = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Point {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.radius = Math.random() * 1.5;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = "rgba(56, 189, 248, 0.3)";
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            resize();
+            points = [];
+            for (let i = 0; i < 80; i++) points.push(new Point());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            points.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        animate();
     </script>
 </body>
 </html>
