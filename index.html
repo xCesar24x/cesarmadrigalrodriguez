@@ -25,8 +25,7 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
         .bg-glow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 50% -20%, #1e293b 0%, var(--bg) 60%);
             z-index: -1;
         }
@@ -34,13 +33,8 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
         header {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 1.5rem 0;
-            z-index: 1000;
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            background: var(--glass);
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 0; z-index: 1000;
+            backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); background: var(--glass);
         }
 
         nav { display: flex; justify-content: space-between; align-items: center; }
@@ -154,63 +148,24 @@
             <h2 class="section-title" data-key="title-expertise">Core Expertises</h2>
             <div class="projects-grid">
                 <div class="project-card" data-aos>
-                    <div>
-                        <span class="impact-label" data-key="p1-label">Strategic Finance</span>
-                        <h4 data-key="p1-title">Corporate Finance</h4>
-                        <p data-key="p1-desc">Advanced P&L management, capital structure, and FP&A modeling. Transforming financial data into strategic roadmaps for growth.</p>
-                    </div>
-                    <div class="tag-cloud">
-                        <span class="tag">FP&A</span>
-                        <span class="tag">Modeling</span>
-                    </div>
+                    <div><span class="impact-label" data-key="p1-label">Strategic Finance</span><h4 data-key="p1-title">Corporate Finance</h4><p data-key="p1-desc">Advanced P&L management, capital structure, and FP&A modeling. Transforming financial data into strategic roadmaps.</p></div>
+                    <div class="tag-cloud"><span class="tag">FP&A</span><span class="tag">Modeling</span></div>
                 </div>
-
                 <div class="project-card" data-aos>
-                    <div>
-                        <span class="impact-label" data-key="p2-label">Profit Maximization</span>
-                        <h4 data-key="p2-title">Revenue Management</h4>
-                        <p data-key="p2-desc">Dynamic pricing engines and demand elasticity analysis. Maximizing margins through analytical precision and market logic.</p>
-                    </div>
-                    <div class="tag-cloud">
-                        <span class="tag">Pricing</span>
-                        <span class="tag">Elasticity</span>
-                    </div>
+                    <div><span class="impact-label" data-key="p2-label">Profit Maximization</span><h4 data-key="p2-title">Revenue Management</h4><p data-key="p2-desc">Dynamic pricing engines and demand elasticity analysis. Maximizing margins through analytical precision.</p></div>
+                    <div class="tag-cloud"><span class="tag">Pricing</span><span class="tag">Elasticity</span></div>
                 </div>
-
                 <div class="project-card" data-aos>
-                    <div>
-                        <span class="impact-label" data-key="p3-label">Fiscal Compliance</span>
-                        <h4 data-key="p3-title">Tax Strategy</h4>
-                        <p data-key="p3-desc">Expert-level fiscal oversight and optimized reporting. Navigating complex tax landscapes with zero-error automated precision.</p>
-                    </div>
-                    <div class="tag-cloud">
-                        <span class="tag">Tax Expert</span>
-                        <span class="tag">IFRS</span>
-                    </div>
+                    <div><span class="impact-label" data-key="p3-label">Fiscal Compliance</span><h4 data-key="p3-title">Tax Strategy</h4><p data-key="p3-desc">Expert-level fiscal oversight and optimized reporting. Navigating complex tax landscapes with precision.</p></div>
+                    <div class="tag-cloud"><span class="tag">Tax Expert</span><span class="tag">IFRS</span></div>
                 </div>
-
                 <div class="project-card" data-aos>
-                    <div>
-                        <span class="impact-label" data-key="p4-label">Operational Excellence</span>
-                        <h4 data-key="p4-title">Automation & RPA</h4>
-                        <p data-key="p4-desc">Building custom digital workers. Converting manual, repetitive tasks into high-speed automated workflows (Lean Six Sigma focused).</p>
-                    </div>
-                    <div class="tag-cloud">
-                        <span class="tag">VBA Expert</span>
-                        <span class="tag">Power Automate</span>
-                    </div>
+                    <div><span class="impact-label" data-key="p4-label">Operational Excellence</span><h4 data-key="p4-title">Automation & RPA</h4><p data-key="p4-desc">Building custom digital workers. Converting manual, repetitive tasks into high-speed automated workflows.</p></div>
+                    <div class="tag-cloud"><span class="tag">VBA</span><span class="tag">Power Automate</span></div>
                 </div>
-
                 <div class="project-card" data-aos>
-                    <div>
-                        <span class="impact-label" data-key="p5-label">Decision Support</span>
-                        <h4 data-key="p5-title">Advanced Data Analytics</h4>
-                        <p data-key="p5-desc">From raw SQL/BigQuery data to C-Suite dashboards. Data storytelling that drives immediate and accurate business decisions.</p>
-                    </div>
-                    <div class="tag-cloud">
-                        <span class="tag">Power BI</span>
-                        <span class="tag">SQL</span>
-                    </div>
+                    <div><span class="impact-label" data-key="p5-label">Decision Support</span><h4 data-key="p5-title">Advanced Data Analytics</h4><p data-key="p5-desc">From raw SQL/BigQuery data to C-Suite dashboards. Data storytelling that drives business decisions.</p></div>
+                    <div class="tag-cloud"><span class="tag">Power BI</span><span class="tag">SQL</span></div>
                 </div>
             </div>
         </section>
@@ -219,43 +174,24 @@
             <h2 class="section-title" data-key="title-exp">Professional Journey</h2>
             <div class="timeline">
                 <div class="exp-card" data-aos>
-                    <div class="exp-meta">
-                        <span class="badge">Current</span>
-                        <h4>FIFCO</h4>
-                        <p data-key="fifco-role">Revenue Management Analyst</p>
-                    </div>
-                    <div class="exp-content">
-                        <ul>
-                            <li data-key="fifco-l1">Optimized P&L and commercial flows for premium portfolio categories via PriceFx.</li>
-                            <li data-key="fifco-l2">Engineered dynamic price ladders ensuring maximum margin contribution.</li>
-                        </ul>
-                    </div>
+                    <div class="exp-meta"><span class="badge">Current</span><h4>FIFCO</h4><p data-key="fifco-role">Revenue Management Analyst</p></div>
+                    <div class="exp-content"><ul><li data-key="fifco-l1">Optimized P&L and commercial flows for premium portfolio categories via PriceFx.</li><li data-key="fifco-l2">Engineered dynamic price ladders ensuring maximum margin contribution.</li></ul></div>
                 </div>
                 <div class="exp-card" data-aos>
-                    <div class="exp-meta">
-                        <span class="badge">2024 - 2025</span>
-                        <h4>Grupo ANC</h4>
-                        <p data-key="anc-role">Regional Revenue Manager</p>
-                    </div>
-                    <div class="exp-content">
-                        <ul>
-                            <li data-key="anc-l1">Architected fleet strategy for 500+ assets across 4 LATAM markets.</li>
-                            <li data-key="anc-l3">Developed demand-driven seasonal pricing models.</li>
-                        </ul>
-                    </div>
+                    <div class="exp-meta"><span class="badge">2024 - 2025</span><h4>Grupo ANC</h4><p data-key="anc-role">Regional Revenue Manager</p></div>
+                    <div class="exp-content"><ul><li data-key="anc-l1">Architected fleet strategy for 500+ assets across 4 LATAM markets.</li><li data-key="anc-l3">Developed demand-driven seasonal pricing models.</li></ul></div>
                 </div>
                 <div class="exp-card" data-aos>
-                    <div class="exp-meta">
-                        <span class="badge">2022 - 2024</span>
-                        <h4>Genpact</h4>
-                        <p data-key="gen-role">Senior Tax & Automation Analyst</p>
-                    </div>
-                    <div class="exp-content">
-                        <ul>
-                            <li data-key="gen-l1">Redesigned financial workflows, achieving 60% reduction in manual effort.</li>
-                            <li data-key="gen-l2">Lean Digital Ambassador: Led continuous improvement across regional hubs.</li>
-                        </ul>
-                    </div>
+                    <div class="exp-meta"><span class="badge">2022 - 2024</span><h4>Genpact</h4><p data-key="gen-role">Senior Tax & Automation Analyst</p></div>
+                    <div class="exp-content"><ul><li data-key="gen-l1">Redesigned financial workflows, achieving 60% reduction in manual effort.</li><li data-key="gen-l2">Lean Digital Ambassador: Led continuous improvement across regional hubs.</li></ul></div>
+                </div>
+                <div class="exp-card" data-aos>
+                    <div class="exp-meta"><span class="badge">2020 - 2022</span><h4>Amazon</h4><p data-key="amz-role">Tax Analyst / Financial Specialist</p></div>
+                    <div class="exp-content"><ul><li data-key="amz-l1">Managed complex tax provisioning and reporting for multi-jurisdictional entities.</li><li data-key="amz-l2">Streamlined data collection processes using advanced SQL and automation.</li></ul></div>
+                </div>
+                <div class="exp-card" data-aos>
+                    <div class="exp-meta"><span class="badge">2018 - 2020</span><h4>BT (British Telecom)</h4><p data-key="bt-role">Financial Data Analyst</p></div>
+                    <div class="exp-content"><ul><li data-key="bt-l1">Executed financial planning and variance analysis for global projects.</li><li data-key="bt-l2">Automated monthly billing reporting cycles using VBA macros.</li></ul></div>
                 </div>
             </div>
         </section>
@@ -290,18 +226,12 @@
                 "p4-label": "Operational Excellence", "p4-title": "Automation & RPA", "p4-desc": "Building custom digital workers. Converting manual tasks into high-speed automated workflows.",
                 "p5-label": "Decision Support", "p5-title": "Advanced Data Analytics", "p5-desc": "From SQL to C-Suite dashboards. Data storytelling that drives immediate business decisions.",
                 "title-exp": "Professional Journey",
-                "fifco-role": "Revenue Management Analyst",
-                "fifco-l1": "Optimized P&L via PriceFx.",
-                "fifco-l2": "Engineered dynamic price ladders.",
-                "anc-role": "Regional Revenue Manager",
-                "anc-l1": "Architected LATAM fleet strategy.",
-                "anc-l3": "Developed demand-driven models.",
-                "gen-role": "Senior Tax & Automation Analyst",
-                "gen-l1": "Redesigned workflows (60% effort reduction).",
-                "gen-l2": "Lean Digital Ambassador.",
-                "cta-h2": "Ready to scale your efficiency?",
-                "cta-p": "Available for strategic consulting and project-based work.",
-                "cta-btn": "Start a Conversation"
+                "fifco-role": "Revenue Management Analyst", "fifco-l1": "Optimized P&L via PriceFx.", "fifco-l2": "Engineered dynamic price ladders.",
+                "anc-role": "Regional Revenue Manager", "anc-l1": "Architected LATAM fleet strategy.", "anc-l3": "Developed demand-driven models.",
+                "gen-role": "Senior Tax & Automation Analyst", "gen-l1": "Redesigned workflows (60% effort reduction).", "gen-l2": "Lean Digital Ambassador.",
+                "amz-role": "Tax Analyst / Financial Specialist", "amz-l1": "Managed complex tax provisioning and reporting.", "amz-l2": "Streamlined data collection using SQL.",
+                "bt-role": "Financial Data Analyst", "bt-l1": "Executed financial planning and variance analysis.", "bt-l2": "Automated billing cycles via VBA.",
+                "cta-h2": "Ready to scale your efficiency?", "cta-p": "Available for strategic consulting and project-based work.", "cta-btn": "Start a Conversation"
             },
             es: {
                 "role-title": "Experto en Finanzas Estratégicas y Revenue",
@@ -315,18 +245,12 @@
                 "p4-label": "Excelencia Operativa", "p4-title": "Automatización y RPA", "p4-desc": "Creación de trabajadores digitales. Convierto tareas manuales en flujos automatizados (Enfoque Lean Six Sigma).",
                 "p5-label": "Soporte de Decisiones", "p5-title": "Análisis de Datos Avanzado", "p5-desc": "De SQL a tableros ejecutivos. Storytelling de datos que impulsa decisiones de negocio precisas.",
                 "title-exp": "Trayectoria Profesional",
-                "fifco-role": "Analista de Revenue Management",
-                "fifco-l1": "Optimización de P&L mediante PriceFx.",
-                "fifco-l2": "Diseño de ladders de precios dinámicos.",
-                "anc-role": "Regional Revenue Manager",
-                "anc-l1": "Arquitectura de estrategia de flota en LATAM.",
-                "anc-l3": "Modelos estacionales basados en demanda.",
-                "gen-role": "Analista Senior de Impuestos y Automatización",
-                "gen-l1": "Rediseño de flujos (60% ahorro de tiempo).",
-                "gen-l2": "Lean Digital Ambassador.",
-                "cta-h2": "¿Listo para escalar tu eficiencia?",
-                "cta-p": "Disponible para consultoría estratégica y proyectos por resultados.",
-                "cta-btn": "Iniciar Conversación"
+                "fifco-role": "Analista de Revenue Management", "fifco-l1": "Optimización de P&L mediante PriceFx.", "fifco-l2": "Diseño de ladders de precios dinámicos.",
+                "anc-role": "Regional Revenue Manager", "anc-l1": "Arquitectura de estrategia de flota en LATAM.", "anc-l3": "Modelos estacionales basados en demanda.",
+                "gen-role": "Analista Senior de Impuestos y Automatización", "gen-l1": "Rediseño de flujos (60% ahorro de tiempo).", "gen-l2": "Lean Digital Ambassador.",
+                "amz-role": "Analista de Impuestos / Especialista Financiero", "amz-l1": "Gestión de provisiones fiscales y reportes multijurisdiccionales.", "amz-l2": "Optimización de procesos mediante SQL y automatización.",
+                "bt-role": "Analista de Datos Financieros", "bt-l1": "Planeación financiera y análisis de variaciones globales.", "bt-l2": "Automatización de ciclos de facturación mediante VBA.",
+                "cta-h2": "¿Listo para escalar tu eficiencia?", "cta-p": "Disponible para consultoría estratégica y proyectos por resultados.", "cta-btn": "Iniciar Conversación"
             },
             pt: {
                 "role-title": "Especialista em Finanças Estratégicas e Receita",
@@ -335,23 +259,17 @@
                 "btn-contact": "Agendar Projeto",
                 "title-expertise": "Focos de Especialidade",
                 "p1-label": "Finanças Estratégicas", "p1-title": "Finanças Corporativas", "p1-desc": "Gestão avançada de P&L e modelagem FP&A. Transformando dados em roteiros estratégicos.",
-                "p2-label": "Maximização de Lucros", "p2-title": "Revenue Management", "p2-desc": "Motores de preços dinâmicos e elasticidade de demanda. Maximizando margens com precisão.",
+                "p2-label": "Maximização de Lucros", "p2-title": "Revenue Management", "p2-desc": "Preços dinâmicos e elasticidade de demanda. Maximizando margens com precisão.",
                 "p3-label": "Compliance Fiscal", "p3-title": "Estratégia Fiscal", "p3-desc": "Supervisão e relatórios fiscais de nível especialista. Gestão de cenários complexos com automação.",
-                "p4-label": "Excelência Operacional", "p4-title": "Automação e RPA", "p4-desc": "Criação de trabalhadores digitais. Convertendo tarefas manuais em fluxos automatizados Lean.",
-                "p5-label": "Suporte à Decisão", "p5-title": "Análise de Dados Avançada", "p5-desc": "De SQL a dashboards executivos. Storytelling de dados para decisões de negócios assertivas.",
+                "p4-label": "Excelencia Operacional", "p4-title": "Automação e RPA", "p4-desc": "Criação de trabalhadores digitais. Convertendo tarefas manuais em fluxos automatizados Lean.",
+                "p5-label": "Suporte à Decisão", "p5-title": "Análise de Dados Avançada", "p5-desc": "De SQL a dashboards executivos. Storytelling de dados para decisões assertivas.",
                 "title-exp": "Jornada Profissional",
-                "fifco-role": "Analista de Revenue Management",
-                "fifco-l1": "Otimização de P&L via PriceFx.",
-                "fifco-l2": "Engenharia de tabelas de preços.",
-                "anc-role": "Regional Revenue Manager",
-                "anc-l1": "Arquitetura de estratégia de frota LATAM.",
-                "anc-l3": "Modelos sazonais baseados em demanda.",
-                "gen-role": "Analista Sênior de Impostos e Automação",
-                "gen-l1": "Redesenho de fluxos (60% redução manual).",
-                "gen-l2": "Lean Digital Ambassador.",
-                "cta-h2": "Pronto para otimizar sua receita?",
-                "cta-p": "Disponível para consultoria estratégica e projetos.",
-                "cta-btn": "Começar Conversa"
+                "fifco-role": "Analista de Revenue Management", "fifco-l1": "Otimização de P&L via PriceFx.", "fifco-l2": "Engenharia de tabelas de preços.",
+                "anc-role": "Regional Revenue Manager", "anc-l1": "Arquitetura de estratégia de frota LATAM.", "anc-l3": "Modelos sazonais baseados em demanda.",
+                "gen-role": "Analista Sênior de Impostos e Automação", "gen-l1": "Redesenho de fluxos (60% redução manual).", "gen-l2": "Lean Digital Ambassador.",
+                "amz-role": "Analista de Impostos / Especialista Financeiro", "amz-l1": "Gestão de provisões fiscais e relatórios multijurisdicionais.", "amz-l2": "Otimização de processos usando SQL.",
+                "bt-role": "Analista de Dados Financeiros", "bt-l1": "Planejamento financeiro e análise de variância.", "bt-l2": "Automação de faturamento via VBA.",
+                "cta-h2": "Pronto para otimizar sua receita?", "cta-p": "Disponível para consultoria estratégica e projetos.", "cta-btn": "Começar Conversa"
             }
         };
 
