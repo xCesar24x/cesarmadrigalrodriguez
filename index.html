@@ -5,104 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CÉSAR MADRIGAL RODRÍGUEZ | Revenue Management</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg: #05070a;
             --surface: #0f1218;
             --accent: #38bdf8;
-            --whatsapp: #25d366;
-            --linkedin: #0077b5;
             --text: #f8fafc;
             --text-dim: #94a3b8;
-            --border: rgba(255,255,255,0.12);
-            --glass: rgba(5, 7, 10, 0.9);
+            --border: rgba(255,255,255,0.08);
             --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
         .bg-glow {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 20% -10%, #1e293b 0%, var(--bg) 50%);
+            background: radial-gradient(circle at 10% -10%, #1e293b 0%, var(--bg) 50%);
             z-index: -1;
         }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
+        /* HEADER LIMPIO Y AJUSTADO */
         header {
             padding: 2.5rem 0;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
+            background: linear-gradient(to bottom, var(--bg), transparent);
+            position: relative;
             z-index: 1000;
         }
 
-        nav { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
-        
-        /* NOMBRE GIGANTE */
-        .logo { 
-            font-weight: 800; 
-            font-size: clamp(1.8rem, 5vw, 3.5rem); 
-            line-height: 0.9;
-            letter-spacing: -2px;
-            background: linear-gradient(135deg, #ffffff 40%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Alinea el idioma arriba con el nombre */
         }
         
+        /* NOMBRE GRANDE Y BIEN ACOMODADO */
+        .logo { 
+            font-weight: 800; 
+            font-size: clamp(2rem, 6vw, 4rem); 
+            line-height: 0.85; /* Tighter line height for executive look */
+            letter-spacing: -3px;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #ffffff 50%, #64748b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.95em;
+        }
+        
+        /* FILTRO DE IDIOMA DISCRETO A LA DERECHA */
         .lang-switcher {
-            display: flex; gap: 0.5rem; background: rgba(255,255,255,0.05);
-            padding: 6px; border-radius: 12px; border: 1px solid var(--border);
+            display: flex;
+            gap: 0.25rem;
+            background: rgba(255,255,255,0.03);
+            padding: 4px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
         }
 
         .lang-btn {
-            background: transparent; border: none; cursor: pointer;
-            font-size: 0.8rem; font-weight: 800; color: var(--text-dim);
-            padding: 8px 14px; border-radius: 8px; transition: var(--transition);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--text-dim);
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: var(--transition);
         }
 
-        .lang-btn.active { background: var(--accent); color: var(--bg); }
+        .lang-btn.active {
+            background: var(--accent);
+            color: var(--bg);
+        }
 
-        .hero { min-height: 75vh; display: flex; flex-direction: column; justify-content: center; padding: 4rem 0; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.8rem); line-height: 1.05; margin-bottom: 2rem; font-weight: 800; }
-        .hero h1 span { background: linear-gradient(90deg, var(--accent), #f8fafc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* HERO SECTION */
+        .hero { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; padding: 4rem 0; }
+        
+        .hero h1 { 
+            font-size: clamp(2.5rem, 8vw, 4.5rem); 
+            line-height: 1.1; 
+            margin-bottom: 2rem; 
+            font-weight: 800; 
+            letter-spacing: -1px;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+            background: linear-gradient(90deg, var(--accent), #f8fafc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        .hero p { font-size: 1.3rem; color: var(--text-dim); max-width: 800px; margin-bottom: 3.5rem; }
+        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 700px; margin-bottom: 3rem; }
 
         .social-row { display: flex; flex-wrap: wrap; gap: 1rem; }
 
         .btn-action {
             display: inline-flex; align-items: center; gap: 0.75rem;
-            padding: 1.2rem 2.2rem; border-radius: 16px; text-decoration: none; 
-            font-weight: 700; font-size: 1rem; transition: var(--transition);
+            padding: 1rem 1.8rem; border-radius: 12px; text-decoration: none; 
+            font-weight: 700; font-size: 0.95rem; transition: var(--transition);
         }
 
         .btn-mail { background: var(--accent); color: var(--bg); }
-        .btn-cv { background: transparent; color: white; border: 2px solid var(--accent); }
-        .btn-cv:hover { background: rgba(56, 189, 248, 0.1); }
+        .btn-cv { border: 1px solid var(--border); color: white; }
+        .btn-cv:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-wa { background: #25d366; color: white; }
+        .btn-li { background: #0077b5; color: white; }
 
-        .btn-action:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.15); }
+        .btn-action:hover { transform: translateY(-3px); }
 
-        .section-title { font-size: 2.5rem; margin-bottom: 3rem; font-weight: 800; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        /* SECCIÓN EXPERTISE */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
         .project-card {
             background: var(--surface); border: 1px solid var(--border);
-            border-radius: 28px; padding: 2.5rem; transition: var(--transition);
+            border-radius: 20px; padding: 2rem;
         }
 
-        footer { padding: 4rem 0; text-align: center; color: var(--text-dim); border-top: 1px solid var(--border); }
-
         @media (max-width: 768px) {
-            nav { flex-direction: column; align-items: center; text-align: center; }
-            .logo { font-size: 2.2rem; }
-            .btn-action { width: 100%; justify-content: center; }
+            nav { flex-direction: column; gap: 1.5rem; }
+            .lang-switcher { align-self: flex-end; }
+            .logo { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -111,7 +142,9 @@
 
     <header>
         <div class="container nav">
-            <div class="logo">CÉSAR MADRIGAL<br>RODRÍGUEZ</div>
+            <div class="logo">
+                CÉSAR MADRIGAL<br><span>RODRÍGUEZ</span>
+            </div>
             <div class="lang-switcher">
                 <button class="lang-btn" onclick="setLang('en', this)">EN</button>
                 <button class="lang-btn active" onclick="setLang('es', this)">ES</button>
@@ -122,46 +155,36 @@
 
     <main class="container">
         <section class="hero">
-            <h1 data-key="hero-h1">Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span></h1>
-            <p data-key="hero-p">Profesional en Revenue Management y Finanzas con 9+ años de experiencia. Conecto operaciones complejas con inteligencia financiera automatizada.</p>
+            <h1 data-key="hero-h1">Engineering Profitability Through <span>Data Systems.</span></h1>
+            <p data-key="hero-p">Finance & Revenue Management professional with 9+ years across BPO, FMCG, and regional car rental. I bridge complex operations with automated financial intelligence.</p>
             
             <div class="social-row">
                 <a href="mailto:cesarmadrigalrodriguez24@gmail.com" class="btn-action btn-mail">
-                    <span data-key="btn-contact">Escríbeme</span>
+                    <span data-key="btn-contact">Email Me</span>
                 </a>
-                
-                <!-- ESTE BOTÓN CAMBIA DE ARCHIVO SEGÚN EL IDIOMA -->
                 <a href="CV_Cesar_Madrigal_ES.pdf" id="cv-download" download class="btn-action btn-cv">
-                    <span data-key="btn-cv">Descargar CV</span>
+                    <span data-key="btn-cv">Download CV</span>
                 </a>
-
-                <a href="https://wa.me/50684349442" target="_blank" class="btn-action" style="background: var(--whatsapp); color:white;">WhatsApp</a>
-                <a href="https://www.linkedin.com/in/c%C3%A9sar-madrigal-rodr%C3%ADguez-3a23351b2" target="_blank" class="btn-action" style="background: var(--linkedin); color:white;">LinkedIn</a>
+                <a href="https://wa.me/50684349442" target="_blank" class="btn-action btn-wa">WhatsApp</a>
+                <a href="https://www.linkedin.com/in/c%C3%A9sar-madrigal-rodr%C3%ADguez-3a23351b2" target="_blank" class="btn-action btn-li">LinkedIn</a>
             </div>
         </section>
 
-        <section id="expertise">
-            <h2 class="section-title" data-key="title-expertise">Especialidades</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h4 data-key="p1-title" style="font-size: 1.5rem; margin-bottom: 1rem;">Corporate Finance</h4>
-                    <p data-key="p1-desc" style="color: var(--text-dim);">Gestión avanzada de P&L y modelado de estructura de capital.</p>
-                </div>
-                <div class="project-card">
-                    <h4 data-key="p2-title" style="font-size: 1.5rem; margin-bottom: 1rem;">Revenue Management</h4>
-                    <p data-key="p2-desc" style="color: var(--text-dim);">Motores de precios dinámicos y análisis de elasticidad.</p>
-                </div>
-                <div class="project-card">
-                    <h4 data-key="p4-title" style="font-size: 1.5rem; margin-bottom: 1rem;">Automation & RPA</h4>
-                    <p data-key="p4-desc" style="color: var(--text-dim);">Creación de robots (VBA/Python) para eliminar tareas manuales.</p>
-                </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h4 data-key="p1-title" style="margin-bottom:0.5rem">Corporate Finance</h4>
+                <p data-key="p1-desc" style="color:var(--text-dim); font-size:0.9rem">Advanced P&L management and capital structure modeling.</p>
             </div>
-        </section>
+            <div class="project-card">
+                <h4 data-key="p2-title" style="margin-bottom:0.5rem">Revenue Management</h4>
+                <p data-key="p2-desc" style="color:var(--text-dim); font-size:0.9rem">Dynamic pricing engines and demand elasticity analysis.</p>
+            </div>
+            <div class="project-card">
+                <h4 data-key="p4-title" style="margin-bottom:0.5rem">Automation & RPA</h4>
+                <p data-key="p4-desc" style="color:var(--text-dim); font-size:0.9rem">Custom digital workers to eliminate manual tasks (VBA/Python).</p>
+            </div>
+        </div>
     </main>
-
-    <footer>
-        <p>&copy; 2026 CÉSAR MADRIGAL RODRÍGUEZ</p>
-    </footer>
 
     <script>
         const i18n = {
@@ -169,41 +192,39 @@
                 "hero-h1": "Engineering Profitability Through <span>Data Systems.</span>",
                 "hero-p": "Finance & Revenue Management professional with 9+ years across BPO, FMCG, and regional car rental.",
                 "btn-contact": "Email Me", "btn-cv": "Download CV",
-                "title-expertise": "Core Expertises"
+                "p1-title": "Corporate Finance", "p1-desc": "Advanced P&L management and capital structure modeling.",
+                "p2-title": "Revenue Management", "p2-desc": "Dynamic pricing engines and demand elasticity analysis.",
+                "p4-title": "Automation & RPA", "p4-desc": "Custom digital workers to eliminate manual tasks (VBA/Python)."
             },
             es: {
                 "hero-h1": "Ingeniería de Rentabilidad mediante <span>Sistemas de Datos.</span>",
                 "hero-p": "Profesional en Revenue Management y Finanzas con 9+ años de experiencia en BPO, FMCG y renta de autos.",
                 "btn-contact": "Escríbeme", "btn-cv": "Descargar CV",
-                "title-expertise": "Especialidades"
+                "p1-title": "Finanzas Corporativas", "p1-desc": "Gestión avanzada de P&L y modelado de estructura de capital.",
+                "p2-title": "Revenue Management", "p2-desc": "Motores de precios dinámicos y análisis de elasticidad.",
+                "p4-title": "Automatización & RPA", "p4-desc": "Robots personalizados para eliminar tareas manuales (VBA/Python)."
             },
             pt: {
                 "hero-h1": "Engenharia de Rentabilidade através de <span>Sistemas de Dados.</span>",
                 "hero-p": "Profissional de Revenue e Finanças com 9+ anos em BPO e FMCG.",
                 "btn-contact": "Enviar Email", "btn-cv": "Baixar CV",
-                "title-expertise": "Especialidades"
+                "p1-title": "Finanças Corporativas", "p1-desc": "Gestão avançada de P&L e modelagem financeira.",
+                "p2-title": "Revenue Management", "p2-desc": "Motores de preços e análise de elasticidade.",
+                "p4-title": "Automação & RPA", "p4-desc": "Robôs personalizados para tarefas manuais (VBA/Python)."
             }
         };
 
         function setLang(lang, btn) {
-            // Estética de botones
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             
-            // Cambio de textos
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if(i18n[lang][key]) el.innerHTML = i18n[lang][key];
             });
 
-            // LÓGICA DE DESCARGA DE CV
             const cvBtn = document.getElementById('cv-download');
-            if (lang === 'en') {
-                cvBtn.href = "CV_Cesar_Madrigal_EN.pdf";
-            } else {
-                // Por defecto descarga el español para ES y PT
-                cvBtn.href = "CV_Cesar_Madrigal_ES.pdf";
-            }
+            cvBtn.href = (lang === 'en') ? "CV_Cesar_Madrigal_EN.pdf" : "CV_Cesar_Madrigal_ES.pdf";
         }
     </script>
 </body>
